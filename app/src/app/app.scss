@@ -1,0 +1,110 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+/* ==================================================================
+FONTS
+================================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
+ion-app.ios,
+ion-app.md
+{
+	font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
+}
+
+
+/* ==================================================================
+BRACKGROUNDS
+================================================================== */
+.bg_primary
+{
+	background-color: 	#e62740 !important;
+}
+.bg_secundary
+{
+	background-color: 	#372737 !important;
+}
+
+.bg_teste
+{
+	background-image: url('../assets/img/bg_teste.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+
+/* ==================================================================
+FLEX TYPES
+================================================================== */
+.flex_type01
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 100vh;
+}
+
+/* ==================================================================
+FIND MUSIC
+================================================================== */
+.find_music
+{
+	/* @extend .bg_teste; */
+
+	.header
+	{
+		margin-top: 15em;
+	}
+
+	.footer
+	{
+		margin-bottom: 8em;
+	}
+}
+
+
+/* ==================================================================
+BUTTONS
+================================================================== */
+.button
+{
+	&.big
+	{
+		font-size: 1.3em;
+		font-weight: 300;
+		padding: 0 3.2em;
+		height: 4.8em;
+		border-width: 4px;
+		border-radius: 10em;
+	}
+
+	&.activated
+	{
+		color: #e62740;
+	}
+}
+
+
+
+
+
