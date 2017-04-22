@@ -1,14 +1,516 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Select Music</ion-title>
-  </ion-navbar>
-</ion-header> -->
+<!--
+	TABS
+	https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/segments/basic
 
-<ion-content class="bg_secundary">
-  <h3>Select Music page</h3>
+	SERACH BAR
+	https://ionicframework.com/docs/components/#searchbar
+ -->
+
+<ion-content class="bg_secundary select_music">
+
+<ion-grid class="noPadding">
+
+	<ion-row>
+		<ion-col col-3 class="left_content">
+
+			<ion-header>
+				<ion-toolbar>
+
+				<div class="flex_type02">
+
+					<img src="assets/img/ico_playlist.png" class=""/>
+
+					<ion-segment [(ngModel)]="playlist" class="toogle_select">
+						<ion-segment-button value="principal">
+							1
+						</ion-segment-button>
+						<ion-segment-button value="instrumental">
+							2
+						</ion-segment-button>
+					</ion-segment>
+
+				</div><!-- /flex_type02 -->
+
+				</ion-toolbar>
+			</ion-header>
+
+			<ion-content>
+
+				<div [ngSwitch]="playlist">
+
+					<ion-list *ngSwitchCase="'principal'" class="list_playlist">
+
+						<h1>
+							<span>Playlist</span>
+							Principal
+						</h1>
+
+
+						<ion-item>
+							<ion-thumbnail item-left class="">
+								<ion-badge>1</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left class="">
+								<ion-badge>2</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left class="">
+								<ion-badge>3</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>4</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>5</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>6</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>7</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>8</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>9</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>10</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>11</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>12</ion-badge>
+								<img src="assets/img/img_placehold_outline.png">
+							</ion-thumbnail>
+							<h2>Nenhuma música selecionada</h2>
+						</ion-item>
+
+					</ion-list>
+
+					<ion-list *ngSwitchCase="'instrumental'" class="list_playlist">
+
+						<h1>
+							<span>Playlist</span>
+							Instrumental
+						</h1>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>1</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>2</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>3</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>4</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>5</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>6</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>7</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>8</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>9</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>10</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+						<ion-item>
+							<ion-thumbnail item-left>
+								<ion-badge>11</ion-badge>
+								<img src="assets/img/img_placehold_pq.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+							<ion-icon name="md-arrow-dropright"></ion-icon>
+							<ion-icon name="ios-trash-outline"></ion-icon>
+							<ion-icon name="ios-swap-outline"></ion-icon>
+						</ion-item>
+
+					</ion-list>
+
+				</div>
+
+			</ion-content>
+
+			<ion-footer>
+				<ion-toolbar>
+					<button ion-button color="light" class="" outline>Iniciar reprodução</button>
+				</ion-toolbar>
+			</ion-footer>
+
+		</ion-col><!-- /.left_content -->
+
+		<ion-col col-9 class="right_content">
+
+			<ion-header>
+				<ion-toolbar>
+
+					<ion-row>
+						<ion-col col-6>
+							<img src="assets/img/logo_worshop_pq.png" class=""/>
+						</ion-col>
+					<ion-col offset-2 col-4>
+							<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+						</ion-col>
+					</ion-row><!-- /.ion-row -->
+
+				</ion-toolbar>
+			</ion-header>
+
+			<ion-content>
+
+				<ion-row>
+					<ion-col col-6>
+						<h1>
+							Suas Músicas
+							<ion-badge>127</ion-badge>
+						</h1>
+					</ion-col>
+					<ion-col offset-3 col-3>
+						<ion-list>
+							<ion-item>
+								<ion-label>Ordenar por...</ion-label>
+								<ion-select>
+									<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+									<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+									<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+									<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+									<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+								</ion-select>
+							</ion-item>
+						</ion-list>
+					</ion-col>
+				</ion-row><!-- /.ion-row -->
+
+				<ion-list class="list_playlist capas">
+
+
+					<ion-row>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_capa_ex.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Molda-me</h1>
+							<h2>Renata Salles</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Novo Dia, Novo Tempo</h1>
+							<h2>Renascer Praise</h2>
+						</ion-item>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Ent	ao minh'alma canta a ti senhor</h1>
+							<h2>Ministério Apascentar de Nova Iguaçu</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_capa_ex.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_capa_ex.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3>
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+						<ion-item col-3 class="item_active">
+							<ion-thumbnail>
+								<span class="ico_select"></span><!-- /.ico_select-->
+								<img src="assets/img/img_placehold_capa.png">
+							</ion-thumbnail>
+							<h1>Nome da música</h1>
+							<h2>Nome do artista</h2>
+						</ion-item>
+
+					</ion-row><!-- /.ion-row -->
+
+				</ion-list>
+
+			</ion-content>
+
+		</ion-col><!-- /right_content -->
+	</ion-row>
+
+</ion-grid>
+
 
 
 	<ion-fab right bottom>

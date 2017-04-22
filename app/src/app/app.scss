@@ -17,6 +17,13 @@
 
 
 /* ==================================================================
+VARIABLES
+================================================================== */
+$primary-color: 	#e62740;
+$secundary-color: 	#372737;
+
+
+/* ==================================================================
 FONTS
 ================================================================== */
 
@@ -28,17 +35,51 @@ ion-app.md
 	font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
 }
 
+.content-ios
+{
+	color:  #ffffff;
+}
+
+
+/* ==================================================================
+UTEIS
+================================================================== */
+.noPadding
+{
+	padding: 0;
+}
+
+.ico_select
+{
+	width: 60px;
+	height: 60px;
+	display: none;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	padding: 0;
+
+	margin-left: -30px;
+	margin-top: -30px;
+
+	background-image: url('../assets/img/ico_select.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 
 /* ==================================================================
 BRACKGROUNDS
 ================================================================== */
 .bg_primary
 {
-	background-color: 	#e62740 !important;
+	background-color: 	$primary-color !important;
 }
 .bg_secundary
 {
-	background-color: 	#372737 !important;
+	background-color: 	$secundary-color !important;
 }
 
 .bg_teste
@@ -64,6 +105,181 @@ FLEX TYPES
 	height: 100vh;
 }
 
+.flex_type02
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* align-items: center; */
+}
+
+/* ==================================================================
+BUTTONS
+================================================================== */
+.button
+{
+	border-radius: 10em;
+	&.big
+	{
+		font-size: 1.3em;
+		font-weight: 300;
+		padding: 0 3.2em;
+		height: 4.8em;
+		border-width: 4px;
+	}
+
+	&.activated
+	{
+		color: $primary-color;
+	}
+}
+
+
+/* ==================================================================
+SEGMENTS
+================================================================== */
+.toogle_select
+{
+	position: static;
+	justify-content: flex-end;
+	.segment-ios,
+	.segment-button
+	{
+		flex: initial;
+
+		width: 40px;
+		height: 40px;
+		line-height: 38px;
+
+		border-radius: 50% !important;
+		margin-left: 12px !important;
+
+		border-color: #ffffff;
+		border-width: 2px !important;
+		color: #ffffff;
+
+		font-size: 1.6rem;
+
+		&.segment-activated
+		{
+			background-color: #ffffff;
+			color: $primary-color;
+		}
+
+		&:last-child
+		{
+			margin-right: 5px;
+		}
+	}
+}
+
+/* ==================================================================
+LISTS
+================================================================== */
+.list_playlist
+{
+	.item
+	{
+	    padding-left: 0;
+	    font-size: 1.7rem;
+	    color: #ffffff;
+	    background-color: transparent;
+	    transition: background-color 200ms linear;
+
+	    border-bottom: 0.55px solid #c8c7cc;
+
+		ion-avatar,
+		ion-thumbnail
+	    {
+	    	position: relative;
+
+			ion-img,
+			img
+			{
+				width: auto;
+				height: auto;
+			}
+
+	    	.badge-ios
+		    {
+		    	position: absolute;
+			    top: -10px;
+			    left: 30px;
+
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+
+				letter-spacing: -1.4px;
+
+				text-align: center;
+				padding: 0;
+
+			    background-color: #ffffff;
+			    color: $secundary-color;
+
+			    font-weight: 400;
+
+			    border-radius: 50%;
+		    }
+	    }
+
+	    ion-label
+	    {
+			white-space: normal;
+			font-weight: normal;
+	    }
+
+	    .item-inner
+	    {
+		    border-bottom: none;
+		}
+
+		&.item_active
+		{
+			ion-avatar,
+			ion-thumbnail
+			{
+				border:  solid 2px $primary-color;
+
+				img
+				{
+					opacity: .2;
+				}
+
+				.ico_select
+				{
+					display: block;
+				}
+			}
+		}
+	}
+
+
+	&.capas
+	{
+		.item
+		{
+			align-items: baseline;
+			border:  none;
+
+		    ion-label
+		    {
+				text-align: center;
+		    }
+
+			ion-avatar,
+			ion-thumbnail
+			{
+			    display: inline-block;
+				border-radius: 10px;
+	    		overflow: hidden;
+			}
+		}
+	}
+}
+
+
 /* ==================================================================
 FIND MUSIC
 ================================================================== */
@@ -84,27 +300,39 @@ FIND MUSIC
 
 
 /* ==================================================================
-BUTTONS
+SELECT MUSIC
 ================================================================== */
-.button
+.select_music
 {
-	&.big
+	/* @extend .bg_teste; */
+
+	.left_content,
+	.right_content
 	{
-		font-size: 1.3em;
-		font-weight: 300;
-		padding: 0 3.2em;
-		height: 4.8em;
-		border-width: 4px;
-		border-radius: 10em;
+		height: 100vh;
+
+		.toolbar-background-ios
+		{
+			background-color: transparent;
+			border:  none;
+		}
+
+		.content-ios
+		{
+			background-color: transparent;
+		}
 	}
 
-	&.activated
+	.left_content
 	{
-		color: #e62740;
+		@extend .bg_primary;
 	}
+
+	.right_content
+	{
+		@extend .bg_secundary;
+	}
+
 }
-
-
-
 
 
