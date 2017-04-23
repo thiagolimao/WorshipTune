@@ -40,7 +40,7 @@
 
 					<ion-list *ngSwitchCase="'principal'" class="list_playlist">
 
-						<h1>
+						<h1 class="type01">
 							<span>Playlist</span>
 							Principal
 						</h1>
@@ -63,8 +63,8 @@
 								<ion-badge>2</ion-badge>
 								<img src="assets/img/img_placehold_pq.png">
 							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
+							<h1>Ent	ao minh'alma canta a ti senhor</h1>
+							<h2>Ministério Apascentar de Nova Iguaçu</h2>
 							<ion-icon name="md-arrow-dropright"></ion-icon>
 							<ion-icon name="ios-trash-outline"></ion-icon>
 							<ion-icon name="ios-swap-outline"></ion-icon>
@@ -303,7 +303,7 @@
 
 			<ion-footer>
 				<ion-toolbar>
-					<button ion-button color="light" class="" outline>Iniciar reprodução</button>
+					<button ion-button color="light" outline block>Iniciar reprodução</button>
 				</ion-toolbar>
 			</ion-footer>
 
@@ -318,20 +318,21 @@
 						<ion-col col-6>
 							<img src="assets/img/logo_worshop_pq.png" class=""/>
 						</ion-col>
-					<ion-col offset-2 col-4>
+						<ion-col offset-2 col-4>
 							<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 						</ion-col>
 					</ion-row><!-- /.ion-row -->
 
 					<ion-row>
 						<ion-col col-6>
-							<h1>
+							<h1 class="type01">
+								<span>&nbsp;</span>
 								Suas Músicas
 								<ion-badge>127</ion-badge>
 							</h1>
 						</ion-col>
 						<ion-col offset-3 col-3>
-							<ion-list>
+							<ion-list class="item_order">
 								<ion-item>
 									<ion-label>Ordenar por...</ion-label>
 									<ion-select interface="action-sheet">
@@ -342,7 +343,7 @@
 										<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
 									</ion-select>
 								</ion-item>
-							</ion-list>
+							</ion-list><!-- /item_order -->
 						</ion-col>
 					</ion-row><!-- /.ion-row -->
 
