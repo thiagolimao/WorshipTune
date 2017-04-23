@@ -22,6 +22,8 @@ VARIABLES
 $primary-color: 	#e62740;
 $secundary-color: 	#372737;
 
+$light-color: 		#d5aad5;
+
 
 /* ==================================================================
 FONTS
@@ -164,6 +166,74 @@ FLEX TYPES
 	/* align-items: center; */
 }
 
+
+/* ==================================================================
+DEFAULTS
+================================================================== */
+.left_content,
+.right_content
+{
+	height: 100vh;
+
+	/* opacity: .4; */
+
+	.header
+	{
+		/* background-color: #ddd; */
+		padding-top: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.toolbar-background
+	{
+		background-color: transparent;
+		border:  none;
+	}
+
+	.content
+	{
+		background-color: transparent;
+	}
+}
+
+.left_content
+{
+	@extend .bg_primary;
+
+	.header
+	{
+		padding-bottom: 20px;
+	}
+
+	h1.type01
+	{
+		margin-bottom: 12px;
+	}
+
+	.content
+	{
+		.scroll-content
+		{
+			margin-top: 100px;
+			margin-bottom: 54px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	.footer
+	{
+		/* background-color: #ccc; */
+		padding: 10px 20px 20px;
+	}
+}
+
+.right_content
+{
+	@extend .bg_secundary;
+}
+
 /* ==================================================================
 BUTTONS
 ================================================================== */
@@ -186,6 +256,12 @@ BUTTONS
 	&.activated
 	{
 		color: $primary-color;
+	}
+
+	&.light
+	{
+		border-color: $light-color;
+		color: $light-color;
 	}
 }
 
@@ -238,16 +314,16 @@ FORM
 		}
 
 		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-			color: #d5aad5;
+			color: $light-color;
 		}
 		::-moz-placeholder { /* Firefox 19+ */
-			color: #d5aad5;
+			color: $light-color;
 		}
 		:-ms-input-placeholder { /* IE 10+ */
-			color: #d5aad5;
+			color: $light-color;
 		}
 		:-moz-placeholder { /* Firefox 18- */
-			color: #d5aad5;
+			color: $light-color;
 		}
 	}
 }
@@ -272,7 +348,7 @@ FORM
 
 	.label {
 	    margin-left: 16px;
-	    color: #d5aad5;
+	    color: $light-color;
 	}
 
 	.select .select-icon .select-icon-inner
@@ -281,7 +357,7 @@ FORM
 		border-top: 8px solid;
 		border-right: 8px solid transparent;
 		border-left: 8px solid transparent;
-		color: #d5aad5;
+		color: $light-color;
 	}
 }
 
@@ -348,7 +424,7 @@ LISTS
 
     	&:last-child
     	{
-    		border-bottom: none;
+    		border-bottom: none !important;
     	}
 
 		ion-avatar,
@@ -440,12 +516,117 @@ LISTS
 				ion-img,
 				img
 				{
-					border-radius: 10px;
-					border: solid 2px #ffffff;
+					border-radius: 10px !important;
+					border: solid 2px #ffffff !important;
 				}
 			}
 		}
 
+	}
+
+	&.insert
+	{
+		.item
+		{
+	    	border-bottom: 0.55px solid rgba(146, 20, 56, 1);
+			align-items: initial;
+
+
+
+			/* opacity: .6; */
+
+			ion-label
+		    {
+				/* white-space: nowrap; */
+				margin-top: 0;
+				margin-bottom: 0;
+				margin-right: 0;
+
+				*
+				{
+					opacity: .7;
+				}
+
+				h1
+				{
+					margin-top: -3px;
+				}
+			}
+
+	    	ion-avatar,
+			ion-thumbnail
+			{
+				ion-img,
+				img
+				{
+					border-radius: 10px;
+					border: solid 2px transparent;
+
+					max-width: 68px;
+				}
+			}
+
+			&.item_filled
+			{
+
+				ion-label
+			    {
+					*
+					{
+						opacity: 1;
+					}
+				}
+
+				ion-avatar,
+				ion-thumbnail
+				{
+					overflow: hidden;
+					img
+					{
+						/* opacity: .6; */
+					}
+
+					&:after
+					{
+						content: "";
+						width: 64px;
+						height: 64px;
+
+						background-color: $secundary-color;
+
+						top: 0;
+						left: 0;
+
+						display: block;
+
+						position: absolute;
+
+						opacity: .8;
+						border-radius: 10px;
+
+						border-radius: 10px !important;
+						border: solid 2px #ffffff !important;
+					}
+
+					.ico_select
+					{
+						display: block;
+
+						width: 36px;
+						height: 36px;
+
+						margin-left: -18px;
+						margin-top: 0;
+						top: 16px;
+
+						background-size: cover;
+
+						z-index: 10;
+					}
+				}
+
+			}
+	    }
 	}
 
 
@@ -518,7 +699,6 @@ FIND MUSIC
 	}
 }
 
-
 /* ==================================================================
 SELECT MUSIC
 ================================================================== */
@@ -526,69 +706,8 @@ SELECT MUSIC
 {
 	/* @extend .bg_teste; */
 
-	.left_content,
 	.right_content
 	{
-		height: 100vh;
-
-		/* opacity: .4; */
-
-		.header
-		{
-			/* background-color: #ddd; */
-			padding-top: 30px;
-			padding-left: 20px;
-			padding-right: 20px;
-		}
-
-		.toolbar-background
-		{
-			background-color: transparent;
-			border:  none;
-		}
-
-		.content
-		{
-			background-color: transparent;
-		}
-	}
-
-	.left_content
-	{
-		@extend .bg_primary;
-
-		.header
-		{
-			padding-bottom: 20px;
-		}
-
-		h1.type01
-		{
-			margin-bottom: 12px;
-		}
-
-		.content
-		{
-			.scroll-content
-			{
-				margin-top: 100px;
-				margin-bottom: 54px;
-				padding-left: 20px;
-				padding-right: 20px;
-			}
-		}
-
-		.footer
-		{
-			/* background-color: #ccc; */
-			padding: 10px 20px 20px;
-		}
-	}
-
-	.right_content
-	{
-		@extend .bg_secundary;
-
 		.header
 		{
 			.row
@@ -618,4 +737,32 @@ SELECT MUSIC
 
 }
 
+/* ==================================================================
+PLAYLIST
+================================================================== */
+.playlist_music
+{
+	.sidebar
+	{
+		position: fixed;
+		top: 0;
+		left: -25%;
+
+		width: 25%;
+		max-width: 25%;
+
+		z-index: 9999;
+
+	}
+	.right_content
+	{
+		.header
+		{
+			.button
+			{
+				height: 2.6em;
+			}
+		}
+	}
+}
 
