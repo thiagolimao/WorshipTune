@@ -35,9 +35,15 @@ ion-app.md
 	font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
 }
 
-.content-ios
+.content
 {
 	color:  #ffffff;
+}
+
+.content-md,
+.toolbar-background-md
+{
+	background-color: transparent;
 }
 
 
@@ -60,7 +66,7 @@ h1, h2, h3, h4, h5, h6
 		}
 	}
 
-	.badge-ios
+	.badge
     {
     	position: relative;
     	top: -2px;
@@ -190,7 +196,7 @@ FORM
 ================================================================== */
 .toolbar 
 {
-	.searchbar-ios
+	.searchbar
 	{
 	    padding: 0 8px;
 	    min-height: 44px;
@@ -252,7 +258,7 @@ FORM
 	margin-bottom: 0;
     margin-top: 30px;
 
-	.item-ios
+	.item
 	{
 		padding: 0 8px;
 		min-height: 44px;
@@ -264,12 +270,12 @@ FORM
 		border: none !important;
 	}
 
-	.label-ios {
+	.label {
 	    margin-left: 16px;
 	    color: #d5aad5;
 	}
 
-	.select-ios .select-icon .select-icon-inner
+	.select .select-icon .select-icon-inner
 	{
 		margin-top: -2px;
 		border-top: 8px solid;
@@ -287,7 +293,7 @@ SEGMENTS
 {
 	position: static;
 	justify-content: flex-end;
-	.segment-ios,
+	.segment,
 	.segment-button
 	{
 		/* flex: initial; */
@@ -329,6 +335,7 @@ LISTS
 ================================================================== */
 .list_playlist
 {
+	margin-bottom: 0;
 	.item
 	{
 	    padding: 25px 0 25px 10px;
@@ -356,7 +363,7 @@ LISTS
 				height: auto;
 			}
 
-	    	.badge-ios
+	    	.badge
 		    {
 		    	position: absolute;
 			    top: -10px;
@@ -534,13 +541,13 @@ SELECT MUSIC
 			padding-right: 20px;
 		}
 
-		.toolbar-background-ios
+		.toolbar-background
 		{
 			background-color: transparent;
 			border:  none;
 		}
 
-		.content-ios
+		.content
 		{
 			background-color: transparent;
 		}
