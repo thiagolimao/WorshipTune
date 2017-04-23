@@ -54,7 +54,7 @@ export class SelectPage {
         // to stop watching
         // watch.unsubscribe();
 
-      });
+      // });
 
     }
 
