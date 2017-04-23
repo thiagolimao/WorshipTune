@@ -13,8 +13,8 @@ import { PlayPage }       from '../pages/play/play';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { Geolocation } from '@ionic-native/geolocation';
-// import { Insomnia } from '@ionic-native/insomnia';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Insomnia } from '@ionic-native/insomnia';
 
 @NgModule({
   declarations: [
@@ -45,8 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    // Geolocation,
-    // Insomnia,
+    Geolocation,
+    Insomnia,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
