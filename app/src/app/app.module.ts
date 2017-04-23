@@ -15,6 +15,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Insomnia } from '@ionic-native/insomnia';
+import { File } from '@ionic-native/file';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { Insomnia } from '@ionic-native/insomnia';
     SplashScreen,
     Geolocation,
     Insomnia,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
