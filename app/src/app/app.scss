@@ -35,9 +35,15 @@ ion-app.md
 	font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
 }
 
-.content-ios
+.content
 {
 	color:  #ffffff;
+}
+
+.content-md,
+.toolbar-background-md
+{
+	background-color: transparent;
 }
 
 
@@ -60,7 +66,7 @@ h1, h2, h3, h4, h5, h6
 		}
 	}
 
-	.badge-ios
+	.badge
     {
     	position: relative;
     	top: -2px;
@@ -190,7 +196,7 @@ FORM
 ================================================================== */
 .toolbar 
 {
-	.searchbar-ios
+	.searchbar
 	{
 	    padding: 0 8px;
 	    min-height: 44px;
@@ -252,7 +258,7 @@ FORM
 	margin-bottom: 0;
     margin-top: 30px;
 
-	.item-ios
+	.item
 	{
 		padding: 0 8px;
 		min-height: 44px;
@@ -264,12 +270,12 @@ FORM
 		border: none !important;
 	}
 
-	.label-ios {
+	.label {
 	    margin-left: 16px;
 	    color: #d5aad5;
 	}
 
-	.select-ios .select-icon .select-icon-inner
+	.select .select-icon .select-icon-inner
 	{
 		margin-top: -2px;
 		border-top: 8px solid;
@@ -287,23 +293,28 @@ SEGMENTS
 {
 	position: static;
 	justify-content: flex-end;
-	.segment-ios,
+	.segment,
 	.segment-button
 	{
-		flex: initial;
+		/* flex: initial; */
 
-		width: 40px;
-		height: 40px;
-		line-height: 38px;
+		display: inline-block;
+		text-overflow: initial;
 
-		border-radius: 50% !important;
-		margin-left: 12px !important;
+		/* width: 40px; */
+		height: 34px;
+		line-height: 34px;
 
-		border-color: #ffffff;
-		border-width: 2px !important;
+		border-radius: 10em !important;
+		/* margin-left: 12px !important; */
+
+		/* padding-left: 10px; */
+		/* padding-right: 10px; */
+
+		border-width: 0 !important;
 		color: #ffffff;
 
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 
 		&.segment-activated
 		{
@@ -313,7 +324,8 @@ SEGMENTS
 
 		&:last-child
 		{
-			margin-right: 5px;
+			margin-right: 0;
+			min-width: 120px;
 		}
 	}
 }
@@ -323,15 +335,21 @@ LISTS
 ================================================================== */
 .list_playlist
 {
+	margin-bottom: 0;
 	.item
 	{
-	    padding: 20px 0 20px 10px;
+	    padding: 25px 0 25px 10px;
 	    font-size: 1.7rem;
 	    color: #ffffff;
 	    background-color: transparent;
 	    transition: background-color 200ms linear;
 
     	border-bottom: 0.55px solid rgba(255, 128, 164, 0.4);
+
+    	&:last-child
+    	{
+    		border-bottom: none;
+    	}
 
 		ion-avatar,
 		ion-thumbnail
@@ -345,7 +363,7 @@ LISTS
 				height: auto;
 			}
 
-	    	.badge-ios
+	    	.badge
 		    {
 		    	position: absolute;
 			    top: -10px;
@@ -368,6 +386,11 @@ LISTS
 			    border-radius: 50%;
 		    }
 	    }
+
+	    .item-inner
+		{
+			margin-right: 0;
+		}
 
 	    ion-avatar[item-left],
 	    ion-thumbnail[item-left]
@@ -397,10 +420,19 @@ LISTS
 
 		&.item_filled
 		{
+			align-items: initial;
 
 		    ion-label
 		    {
-				white-space: nowrap;
+				/* white-space: nowrap; */
+				margin-top: 0;
+				margin-bottom: 0;
+				margin-right: 0;
+
+				h1
+				{
+					margin-top: -3px;
+				}
 			}
 			ion-avatar,
 			ion-thumbnail
@@ -427,6 +459,8 @@ LISTS
 		    ion-label
 		    {
 				text-align: center;
+				margin-top:  0;
+				margin-bottom: 0;
 				h1
 				{
 				    margin: 6px 0 4px;
@@ -507,13 +541,13 @@ SELECT MUSIC
 			padding-right: 20px;
 		}
 
-		.toolbar-background-ios
+		.toolbar-background
 		{
 			background-color: transparent;
 			border:  none;
 		}
 
-		.content-ios
+		.content
 		{
 			background-color: transparent;
 		}
@@ -526,6 +560,11 @@ SELECT MUSIC
 		.header
 		{
 			padding-bottom: 20px;
+		}
+
+		h1.type01
+		{
+			margin-bottom: 12px;
 		}
 
 		.content
