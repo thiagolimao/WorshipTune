@@ -13,9 +13,10 @@ import { PlayPage }       from '../pages/play/play';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { Geolocation } from '@ionic-native/geolocation';
-// import { Insomnia } from '@ionic-native/insomnia';
-// import { File } from '@ionic-native/file';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Insomnia } from '@ionic-native/insomnia';
+import { File } from '@ionic-native/file';
+// import { Music } from '@ionic-native/music';
 
 
 @NgModule({
@@ -47,9 +48,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    // Geolocation,
-    // Insomnia,
-    // File,
+    Geolocation,
+    Insomnia,
+    File,
+    // Music,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

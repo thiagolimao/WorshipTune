@@ -25,6 +25,8 @@
   <preference name="AutoHideSplashScreen" value="false" />
   <preference name="ShowSplashScreenSpinner" value="false" />
   <preference name="orientation" value="landscape" />
+  <preference name="iosPersistentFileLocation" value="Library" />
+
 
   <platform name="android">
     <allow-intent href="market:*"/>
@@ -48,6 +50,10 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <platform name="ios">
+    <config-file parent="NSAppleMusicUsageDescription" target="*-Info.plist">
+        <string>Usamos a sua musica para tocar fieis</string>
+    </config-file>
+
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
