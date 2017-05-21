@@ -225,7 +225,7 @@ DEFAULTS
 {
 	height: 100vh;
 
-	/* opacity: .4; */
+	opacity: .4;
 
 	.header
 	{
@@ -299,8 +299,8 @@ BUTTONS
 	{
 		font-size: 1.3em;
 		font-weight: 300;
-		padding: 0 3.2em;
-		height: 4.8em;
+		padding: 0 2.4em;
+		height: 4em;
 	}
 
 	&.activated
@@ -840,16 +840,22 @@ FIND MUSIC
 ================================================================== */
 .find_music
 {
-	/* @extend .bg_teste; */
+	@extend .bg_teste;
 
 	.header
 	{
-		margin-top: 15em;
+		margin-top: 13%;
+    	width: 18%;
+
+    	img
+    	{
+    		width: 100%;
+    	}
 	}
 
 	.footer
 	{
-		margin-bottom: 8em;
+		margin-bottom: 8%;
 	}
 }
 
@@ -858,7 +864,7 @@ SELECT MUSIC
 ================================================================== */
 .select_music
 {
-	/* @extend .bg_teste; */
+	// @extend .bg_teste;
 
 	.right_content
 	{
