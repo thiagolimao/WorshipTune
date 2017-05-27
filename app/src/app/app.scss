@@ -19,7 +19,7 @@
 /* ==================================================================
 VARIABLES
 ================================================================== */
-$primary-color: 	#e62740;
+$primary-color: 	#ff0049;
 $secundary-color: 	#372737;
 
 $light-color: 		#d5aad5;
@@ -56,15 +56,18 @@ TITULOS
 
 h1, h2, h3, h4, h5, h6
 {
-	font-weight: 300;
+	font-weight: 200;
 	margin: 0;
 
 	&.type01
 	{
-		font-size: 2.5em;
+		font-size: 30px;
+		line-height: 1;
+		font-weight: 300;
 		span
 		{
 			font-size: .7em;
+			font-weight: 200;
 			display: block;
 		}
 
@@ -223,16 +226,32 @@ DEFAULTS
 .left_content,
 .right_content
 {
-	height: 100vh;
+	position: relative;
+    padding: 0;
+    margin: 0;
 
-	/* opacity: .4; */
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+
+    width: 100%;
+    max-width: 100%;
+
+	height: 100vh;
+    min-height: 1px;
+
+	// opacity: .6;
 
 	.header
 	{
 		/* background-color: #ddd; */
-		padding-top: 30px;
-		padding-left: 20px;
-		padding-right: 20px;
+		// padding-top: 30px;
+		// padding-left: 20px;
+		// padding-right: 20px;
 	}
 
 	.toolbar-background
@@ -251,14 +270,26 @@ DEFAULTS
 {
 	@extend .bg_primary;
 
+    -webkit-flex: 0 0 26.6%;
+    -ms-flex: 0 0 26.6%;
+    flex: 0 0 26.6%;
+    width: 26.6%;
+    max-width: 26.6%;
+
 	.header
 	{
-		padding-bottom: 20px;
+		padding: 8px 20px 8px 27px;
+
+		img
+		{
+			max-width: 40px;
+		}
 	}
 
 	h1.type01
 	{
-		margin-bottom: 12px;
+		margin-bottom: 21px;
+		padding-left: 10px;
 	}
 
 	.content
@@ -267,21 +298,79 @@ DEFAULTS
 		{
 			margin-top: 100px;
 			margin-bottom: 54px;
-			padding-left: 20px;
-			padding-right: 20px;
+			padding-top: 15px;
+			padding-left: 17px;
+			padding-right: 17px;
+		}
+		.list_playlist
+		{
+
+			.item
+			{
+				ion-avatar,
+				ion-thumbnail
+			    {
+					ion-img,
+					img
+					{
+						width: 66px;
+					}
+				}
+			}
 		}
 	}
 
 	.footer
 	{
-		/* background-color: #ccc; */
-		padding: 10px 20px 20px;
+		padding: 0 16px 27px;
 	}
 }
 
 .right_content
 {
 	@extend .bg_secundary;
+
+	-webkit-flex: 0 0 73.4%;
+    -ms-flex: 0 0 73.4%;
+    flex: 0 0 73.4%;
+    width: 73.4%;
+    max-width: 73.4%;
+
+    .header
+    {
+	    padding-top: 8px;
+	    padding-left: 30px;
+	    padding-right: 25px;
+
+	    > .toolbar
+	    {
+	    	padding: 0;
+
+	    	.row
+	    	{
+	    		&:first-child
+	    		{
+	    			margin-bottom: 23px;
+	    		}
+	    	}
+	    }
+
+	    .ico_logo
+	    {
+	    	width: 70px;
+	    }
+
+	    .item-select
+	    {
+	    	height: 30px;
+	    	min-height: 30px;
+
+			.label
+			{
+				font-size: 13px
+			}
+	    }
+    }
 }
 
 /* ==================================================================
@@ -290,17 +379,18 @@ BUTTONS
 .button
 {
 	border-radius: 10em;
-	border-width: 3px;
+	border-width: 2px;
 
-    height: 3.8em;
-    font-size: 1.8rem;
+    height: 3.4em;
+    font-size: 1.5rem;
 
 	&.big
 	{
+		border-width: 3px;
 		font-size: 1.3em;
 		font-weight: 300;
-		padding: 0 3.2em;
-		height: 4.8em;
+		padding: 0 2.4em;
+		height: 4em;
 	}
 
 	&.activated
@@ -427,17 +517,16 @@ SEGMENTS
 		display: inline-block;
 		text-overflow: initial;
 
-		/* width: 40px; */
-		height: 34px;
-		line-height: 34px;
+		width: 40px;
+		max-width: 40px;
 
-		border-radius: 10em !important;
-		/* margin-left: 12px !important; */
+		height: 40px;
+		line-height: 40px;
 
-		/* padding-left: 10px; */
-		/* padding-right: 10px; */
+		border-radius: 50% !important;
 
-		border-width: 0 !important;
+		border-width: 1px !important;
+		border-color: #ffffff;
 		color: #ffffff;
 
 		font-size: 1.4rem;
@@ -451,7 +540,7 @@ SEGMENTS
 		&:last-child
 		{
 			margin-right: 0;
-			min-width: 120px;
+			margin-left: 8px !important;
 		}
 	}
 }
@@ -464,13 +553,13 @@ LISTS
 	margin-bottom: 0;
 	.item
 	{
-	    padding: 25px 0 25px 10px;
+	    padding: 21px 0 21px 10px;
 	    font-size: 1.7rem;
 	    color: #ffffff;
 	    background-color: transparent;
 	    transition: background-color 200ms linear;
 
-    	border-bottom: 0.55px solid rgba(255, 128, 164, 0.4);
+    	border-bottom: 0.55px solid rgba(255, 128, 164, 0.8);
 
     	&:last-child
     	{
@@ -492,12 +581,12 @@ LISTS
 	    	.badge
 		    {
 		    	position: absolute;
-			    top: -10px;
-			    left: -10px;
+			    top: -6px;
+			    left: -7px;
 
-				width: 25px;
-				height: 25px;
-				line-height: 25px;
+				width: 22px;
+				height: 22px;
+				line-height: 22px;
 
 				letter-spacing: -1.4px;
 
@@ -521,7 +610,7 @@ LISTS
 	    ion-avatar[item-left],
 	    ion-thumbnail[item-left]
 	    {
-	    	margin: 0 16px 0 0;
+	    	margin: 0 11px 0 0;
 	    }
 
 	    ion-label
@@ -530,12 +619,27 @@ LISTS
 			h1
 			{
 			    margin: 6px 0 4px;
-			    font-size: 2rem;
+			    font-size: 1.5rem;
 			    font-weight: bold;
 	    	}
 			h2
 			{
+				font-size: 1.2rem;
+				margin-bottom: 12px;
+	    	}
 
+	    	.item-icon
+	    	{
+	    		border: solid 1px #ffffff;
+	    		border-radius: 50%;
+
+				text-align: center;
+
+				width: 23px;
+				height: 23px;
+				line-height: 23px;
+
+				margin-right: 4px;
 	    	}
 	    }
 
@@ -566,8 +670,8 @@ LISTS
 				ion-img,
 				img
 				{
-					border-radius: 10px !important;
-					border: solid 2px #ffffff !important;
+					border-radius: 8px !important;
+					border: solid 3px #ffffff !important;
 				}
 			}
 		}
@@ -682,6 +786,7 @@ LISTS
 
 	&.capas
 	{
+		margin-bottom: 30px;
 		.item
 		{
 			align-items: baseline;
@@ -694,8 +799,8 @@ LISTS
 				margin-bottom: 0;
 				h1
 				{
-				    margin: 6px 0 4px;
-				    font-size: 2.2rem;
+				    margin: 4px 0;
+				    font-size: 1.5rem;
 		    	}
 		    }
 
@@ -704,7 +809,7 @@ LISTS
 				ion-avatar,
 				ion-thumbnail
 				{
-					border:  solid 2px $primary-color;
+					border:  solid 1px $primary-color;
 
 					img
 					{
@@ -724,7 +829,9 @@ LISTS
 			    display: inline-block;
 				border-radius: 10px;
 	    		overflow: hidden;
-				border:  solid 2px transparent;
+				border:  solid 1px transparent;
+
+				max-width: 113px;
 			}
 		}
 	}
@@ -840,16 +947,22 @@ FIND MUSIC
 ================================================================== */
 .find_music
 {
-	/* @extend .bg_teste; */
+	// @extend .bg_teste;
 
 	.header
 	{
-		margin-top: 15em;
+		margin-top: 13%;
+    	width: 18%;
+
+    	img
+    	{
+    		width: 100%;
+    	}
 	}
 
 	.footer
 	{
-		margin-bottom: 8em;
+		margin-bottom: 8%;
 	}
 }
 
@@ -858,17 +971,18 @@ SELECT MUSIC
 ================================================================== */
 .select_music
 {
-	/* @extend .bg_teste; */
+	// @extend .bg_teste;
 
 	.right_content
 	{
+		// display: none;
 		.header
 		{
 			.row
 			{
 				&:first-child
 				{
-					margin-bottom: 20px;
+					// margin-bottom: 20px;
 					/* background-color: #ddd; */
 				}
 				/* &:last-child
@@ -883,8 +997,9 @@ SELECT MUSIC
 			.scroll-content
 			{
 				/* margin-top: 180px; */
-				padding-left: 20px;
-				padding-right: 20px;
+				// padding-left: 20px;
+				// padding-right: 20px;
+				margin-top: 132px !important;
 			}
 		}
 	}
@@ -981,4 +1096,3 @@ PLAY
 
 
 }
-
