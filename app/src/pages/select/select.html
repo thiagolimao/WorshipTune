@@ -22,10 +22,10 @@
 
 						<ion-segment [(ngModel)]="playlist" class="toogle_select">
 							<ion-segment-button value="principal">
-								Principal
+								P
 							</ion-segment-button>
 							<ion-segment-button value="instrumental">
-								Instrumental
+								I
 							</ion-segment-button>
 						</ion-segment>
 
@@ -51,8 +51,8 @@
 									<ion-badge>1</ion-badge>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
+								<h1>Lugar Seguro</h1>
+								<h2>Aline Barros</h2>
 								<ion-icon name="md-arrow-dropright"></ion-icon>
 								<ion-icon name="ios-trash-outline"></ion-icon>
 								<ion-icon name="ios-swap-outline"></ion-icon>
@@ -63,8 +63,8 @@
 									<ion-badge>2</ion-badge>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h1>Ent	ao minh'alma canta a ti senhor</h1>
-								<h2>Ministério Apascentar de Nova Iguaçu</h2>
+								<h1>Molda-me</h1>
+								<h2>Renata Salles</h2>
 								<ion-icon name="md-arrow-dropright"></ion-icon>
 								<ion-icon name="ios-trash-outline"></ion-icon>
 								<ion-icon name="ios-swap-outline"></ion-icon>
@@ -75,27 +75,35 @@
 									<ion-badge>3</ion-badge>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
+								<h1>Novo Dia, Novo Tempo</h1>
+								<h2>Renascer Praise</h2>
 								<ion-icon name="md-arrow-dropright"></ion-icon>
 								<ion-icon name="ios-trash-outline"></ion-icon>
 								<ion-icon name="ios-swap-outline"></ion-icon>
 							</ion-item>
 
-							<ion-item>
+							<ion-item class="item_filled">
 								<ion-thumbnail item-left>
 									<ion-badge>4</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
+									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
+								<h1>Te Amo Jesus</h1>
+								<h2>Davi Sacer</h2>
+								<ion-icon name="md-arrow-dropright"></ion-icon>
+								<ion-icon name="ios-trash-outline"></ion-icon>
+								<ion-icon name="ios-swap-outline"></ion-icon>
 							</ion-item>
 
-							<ion-item>
+							<ion-item class="item_filled">
 								<ion-thumbnail item-left>
 									<ion-badge>5</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
+									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
+								<h1>Ent	ao minh'alma canta a ti senhor</h1>
+								<h2>Ministério Apascentar de Nova Iguaçu</h2>
+								<ion-icon name="md-arrow-dropright"></ion-icon>
+								<ion-icon name="ios-trash-outline"></ion-icon>
+								<ion-icon name="ios-swap-outline"></ion-icon>
 							</ion-item>
 
 							<ion-item>
@@ -154,6 +162,22 @@
 								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
+							<ion-item>
+								<ion-thumbnail item-left>
+									<ion-badge>13</ion-badge>
+									<img src="assets/img/img_placehold_outline.png">
+								</ion-thumbnail>
+								<h2>Nenhuma música selecionada</h2>
+							</ion-item>
+
+							<ion-item>
+								<ion-thumbnail item-left>
+									<ion-badge>14</ion-badge>
+									<img src="assets/img/img_placehold_outline.png">
+								</ion-thumbnail>
+								<h2>Nenhuma música selecionada</h2>
+							</ion-item>
+
 						</ion-list>
 
 						<ion-list *ngSwitchCase="'instrumental'" class="list_playlist">
@@ -163,137 +187,84 @@
 								Instrumental
 							</h1>
 
-
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>1</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>2</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Ent	ao minh'alma canta a ti senhor</h1>
-								<h2>Ministério Apascentar de Nova Iguaçu</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>3</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>4</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>5</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>6</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>7</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>8</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
 									<ion-badge>9</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
-							<ion-item class="item_filled">
+							<ion-item>
 								<ion-thumbnail item-left>
-									<ion-badge>10</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
+									<ion-badge>10d</ion-badge>
+									<img src="assets/img/img_placehold_outline.png">
 								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
-							</ion-item>
-
-							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>11</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
+								<h2>Nenhuma música selecionada</h2>
 							</ion-item>
 
 						</ion-list>
@@ -317,9 +288,9 @@
 
 						<ion-row>
 							<ion-col col-6>
-								<img src="assets/img/logo_worshop_pq.png" class=""/>
+								<img src="assets/img/logo_worshop_pq.png" class="ico_logo"/>
 							</ion-col>
-							<ion-col offset-2 col-4>
+							<ion-col offset-1 col-5>
 								<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 							</ion-col>
 						</ion-row><!-- /.ion-row -->
