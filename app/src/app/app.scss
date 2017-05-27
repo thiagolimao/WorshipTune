@@ -244,7 +244,7 @@ DEFAULTS
 	height: 100vh;
     min-height: 1px;
 
-	opacity: .6;
+	// opacity: .6;
 
 	.header
 	{
@@ -787,8 +787,8 @@ LISTS
 				margin-bottom: 0;
 				h1
 				{
-				    margin: 6px 0 4px;
-				    font-size: 2.2rem;
+				    margin: 4px 0;
+				    font-size: 1.5rem;
 		    	}
 		    }
 
@@ -797,7 +797,7 @@ LISTS
 				ion-avatar,
 				ion-thumbnail
 				{
-					border:  solid 2px $primary-color;
+					border:  solid 1px $primary-color;
 
 					img
 					{
@@ -817,7 +817,9 @@ LISTS
 			    display: inline-block;
 				border-radius: 10px;
 	    		overflow: hidden;
-				border:  solid 2px transparent;
+				border:  solid 1px transparent;
+
+				max-width: 113px;
 			}
 		}
 	}
@@ -957,7 +959,7 @@ SELECT MUSIC
 ================================================================== */
 .select_music
 {
-	@extend .bg_teste;
+	// @extend .bg_teste;
 
 	.right_content
 	{
