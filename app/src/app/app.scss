@@ -359,6 +359,17 @@ DEFAULTS
 	    {
 	    	width: 70px;
 	    }
+
+	    .item-select
+	    {
+	    	height: 30px;
+	    	min-height: 30px;
+
+			.label
+			{
+				font-size: 13px
+			}
+	    }
     }
 }
 
@@ -775,6 +786,7 @@ LISTS
 
 	&.capas
 	{
+		margin-bottom: 30px;
 		.item
 		{
 			align-items: baseline;
@@ -987,6 +999,7 @@ SELECT MUSIC
 				/* margin-top: 180px; */
 				// padding-left: 20px;
 				// padding-right: 20px;
+				margin-top: 132px !important;
 			}
 		}
 	}
