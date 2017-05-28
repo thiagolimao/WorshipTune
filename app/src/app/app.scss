@@ -144,8 +144,8 @@ UTEIS
 
 .ico_add
 {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	display: block;
 
 	background-image: url('../assets/img/ico_add.png');
@@ -155,8 +155,8 @@ UTEIS
 
 .ico_play
 {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	display: block;
 
 	background-image: url('../assets/img/ico_play.png');
@@ -166,8 +166,8 @@ UTEIS
 
 .ico_pause
 {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	display: block;
 
 	background-image: url('../assets/img/ico_pause.png');
@@ -190,7 +190,7 @@ BRACKGROUNDS
 
 .bg_teste
 {
-	background-image: url('../assets/img/bg_teste.png');
+	background-image: url('../assets/img/bg_play.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -845,9 +845,9 @@ LISTS
 
 	    	margin-bottom: 1.6em;
 
-	    	border-radius: 10px;
+	    	border-radius: 6px;
 
-	    	padding: 20px 0 20px 20px;
+	    	padding: 17px 0 17px 17px;
 
 			.item-inner
 			{
@@ -857,10 +857,11 @@ LISTS
 	    	ion-avatar,
 			ion-thumbnail
 			{
+				margin-right: 21px;
 				ion-img,
 				img
 				{
-					border-radius: 10px;
+					border-radius: 6px;
 					border: solid 2px transparent;
 
 					max-width: 68px;
@@ -871,8 +872,15 @@ LISTS
 			{
 				h1
 				{
+					font-size: 2.1rem;
 				    margin-top: 0;
 				    color: $light-color;
+				}
+				h2
+				{
+					font-size: 1.8rem;
+					margin-bottom: 0;
+					font-weight: 400;
 				}
 			}
 
@@ -881,8 +889,8 @@ LISTS
 				/* display: none; */
 				background-color: $secundary-color;
 
-				width: 60px;
-				height: 60px;
+				width: 50px;
+				height: 50px;
 
 				margin:  0;
 
@@ -1011,17 +1019,18 @@ PLAY
 ================================================================== */
 .play_music
 {
+	// @extend .bg_teste;
 	.sidebar
 	{
 		position: fixed;
 		top: 0;
-		left: -24%;
+		// left: -25%;
+		left: 0;
 
 		width: 25%;
 		max-width: 25%;
 
 		z-index: 9999;
-
 	}
 	.header_content
 	{
@@ -1032,8 +1041,8 @@ PLAY
 
 		.button
 		{
-			width: 60px;
-			height: 60px;
+			width: 50px;
+			height: 50px;
 
 			margin:  0;
 
@@ -1049,10 +1058,28 @@ PLAY
 
 	.right_content
 	{
+
+		-webkit-flex: 0 0 50%;
+	    -ms-flex: 0 0 50%;
+	    flex: 0 0 50%;
+	    width: 50%;
+	    max-width: 50%;
+
 		.header
 		{
-			padding-bottom: 15px;
 			/* background-color: #f0f0f0; */
+
+			padding-top: 8px;
+			padding-bottom: 15px;
+			padding-left: 30px;
+			padding-right: 15px;
+
+			h1.type01
+			{
+				background-position: 3px center;
+				padding-left: 63px;
+				background-size: 41px;
+			}
 			.row
 			{
 				&:first-child
@@ -1061,8 +1088,26 @@ PLAY
 				}
 			}
 		}
+
+		.list_playlist
+		{
+			padding-left: 15px;
+		}
+
 		&.instrumental
 		{
+
+			.header
+			{
+				padding-left: 10px;
+				padding-right: 15px;
+			}
+
+			.list_playlist
+			{
+				padding-left: 0;
+			}
+
 			.row
 			{
 				&:first-child

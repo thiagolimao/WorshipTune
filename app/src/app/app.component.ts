@@ -18,8 +18,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   //rootPage: any = FindPage;
-  rootPage: any = SelectPage;
+  //rootPage: any = SelectPage;
   //rootPage: any = PlaylistPage;
+  rootPage: any = PlayPage;
 
   pages: Array<{title: string, component: any}>;
 
