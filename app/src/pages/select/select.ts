@@ -15,14 +15,17 @@ declare let cordova: any;
 export class SelectPage {
 
   songs: any;
+  filteredSongs: any;
   activeSongs: Array<any>;
   playlist: any;
+  searchTerm: any;
 
   constructor(public navCtrl: NavController, private platform: Platform, private geolocation: Geolocation, private alertCtrl: AlertController, private insomnia: Insomnia, private file: File) {
       this.activeSongs =  [];
       this.playlist = 'principal';
       this.activeSongs['principal'] = [];
       this.activeSongs['instrumental'] = [];
+      this.searchTerm = '';
 
       platform.ready().then(() => {
         this.insomnia.keepAwake()
@@ -33,7 +36,7 @@ export class SelectPage {
 
       });
 
-       this.getSongs().then(list => { this.songs = list; });
+       this.getSongs().then(list => { this.filteredSongs = this.songs = list; });
 
     }
 
@@ -42,7 +45,6 @@ export class SelectPage {
         return new Promise((resolve, reject) => {
             cordova.plugins.Music.getSongs(
                 function (list) {
-                    console.log(list);
                     resolve(list);
                 },
                 function (e) {
@@ -95,5 +97,12 @@ export class SelectPage {
           }
       );
     }
+
+    filterItems(){
+        this.filteredSongs = this.songs.filter((song) => {
+              return song.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1 || song.artist.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+          });
+    }
+
 
   }

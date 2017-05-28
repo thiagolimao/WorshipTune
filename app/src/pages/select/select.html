@@ -100,7 +100,7 @@
 								<img src="assets/img/logo_worshop_pq.png" class="ico_logo"/>
 							</ion-col>
 							<ion-col offset-1 col-5>
-								<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+								<ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()"></ion-searchbar>
 							</ion-col>
 						</ion-row><!-- /.ion-row -->
 
@@ -109,7 +109,7 @@
 								<h1 class="type01">
 									<span>&nbsp;</span>
 									Suas Músicas
-									<ion-badge>{{ songs?.length }}</ion-badge>
+									<ion-badge>{{ filteredSongs?.length }}</ion-badge>
 								</h1>
 							</ion-col>
 							<ion-col offset-3 col-3>
@@ -138,7 +138,7 @@
 
 						<ion-row>
 
-							<ion-item col-3 *ngFor="let song of songs;" [ngClass]="{'item_active' : activeArray(song)}" (tap)="setActive(song)" (press)="playSong(song)" (pressup)="stopSong()">
+							<ion-item col-3 *ngFor="let song of filteredSongs;" [ngClass]="{'item_active' : activeArray(song)}" (tap)="setActive(song)" (press)="playSong(song)" (pressup)="stopSong()">
 								<ion-thumbnail>
 									<span class="ico_select"></span><!-- /.ico_select-->
 									<img src="assets/img/img_placehold_capa.png">
