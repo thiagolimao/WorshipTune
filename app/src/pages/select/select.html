@@ -38,7 +38,7 @@
 
 					<div [ngSwitch]="playlist">
 
-						<ion-list *ngSwitchCase="'principal'" class="list_playlist">
+						<ion-list reorder="true" *ngSwitchCase="'principal'" class="list_playlist">
 
 							<h1 class="type01">
 								<span>Playlist</span>
@@ -46,225 +46,34 @@
 							</h1>
 
 
-							<ion-item class="item_filled">
+							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" class="item_filled">
 								<ion-thumbnail item-left>
-									<ion-badge>1</ion-badge>
+									<ion-badge>{{i + 1}}</ion-badge>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h1>Lugar Seguro</h1>
-								<h2>Aline Barros</h2>
+								<h1>{{princSong.name}}</h1>
+								<h2>{{princSong.artist}}</h2>
 								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
 								<ion-icon name="ios-swap-outline"></ion-icon>
 							</ion-item>
-
-							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>2</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Molda-me</h1>
-								<h2>Renata Salles</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
-							</ion-item>
-
-							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>3</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Novo Dia, Novo Tempo</h1>
-								<h2>Renascer Praise</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
-							</ion-item>
-
-							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>4</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Te Amo Jesus</h1>
-								<h2>Davi Sacer</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
-							</ion-item>
-
-							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>5</ion-badge>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Ent	ao minh'alma canta a ti senhor</h1>
-								<h2>Ministério Apascentar de Nova Iguaçu</h2>
-								<ion-icon name="md-arrow-dropright"></ion-icon>
-								<ion-icon name="ios-trash-outline"></ion-icon>
-								<ion-icon name="ios-swap-outline"></ion-icon>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>6</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>7</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>8</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>9</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>10</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>11</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>12</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>13</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>14</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
 						</ion-list>
 
-						<ion-list *ngSwitchCase="'instrumental'" class="list_playlist">
+						<ion-list reorder="true" *ngSwitchCase="'instrumental'" class="list_playlist">
 
 							<h1 class="type01">
 								<span>Playlist</span>
 								Instrumental
 							</h1>
 
-							<ion-item>
+							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" class="item_filled">
 								<ion-thumbnail item-left>
-									<ion-badge>1</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
+									<ion-badge>{{i + 1}}</ion-badge>
+									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>2</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>3</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>4</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>5</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>6</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>7</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>8</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>9</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
-							</ion-item>
-
-							<ion-item>
-								<ion-thumbnail item-left>
-									<ion-badge>10d</ion-badge>
-									<img src="assets/img/img_placehold_outline.png">
-								</ion-thumbnail>
-								<h2>Nenhuma música selecionada</h2>
+								<h1>{{instSong.name}}</h1>
+								<h2>{{instSong.artist}}</h2>
+								<ion-icon name="md-arrow-dropright"></ion-icon>
+								<ion-icon name="ios-swap-outline"></ion-icon>
 							</ion-item>
 
 						</ion-list>
@@ -329,7 +138,7 @@
 
 						<ion-row>
 
-							<ion-item col-3 *ngFor="let song of songs;">
+							<ion-item col-3 *ngFor="let song of songs;" [ngClass]="{'item_active' : activeArray(song)}" (tap)="setActive(song)" (press)="playSong(song)" (pressup)="stopSong()">
 								<ion-thumbnail>
 									<span class="ico_select"></span><!-- /.ico_select-->
 									<img src="assets/img/img_placehold_capa.png">
