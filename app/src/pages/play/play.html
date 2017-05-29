@@ -173,7 +173,7 @@
 					<ion-toolbar>
 						<ion-row>
 							<ion-col offset-6 col-6>
-								<button ion-button color="light" class="light" [navPush]="findPage" outline block>Encerrar reprodução</button>
+								<button ion-button color="light" class="light" (tap)="stopPlayState()" outline block>Encerrar reprodução</button>
 							</ion-col>
 						</ion-row><!-- /.ion-row -->
 

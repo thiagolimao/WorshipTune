@@ -56,4 +56,9 @@ export class PlayPage {
     	}
     }
 
+    stopPlayState(){
+      this.stopSong();
+      this.navCtrl.push(this.findPage);
+    }
+
 }
