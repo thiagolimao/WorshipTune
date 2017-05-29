@@ -3,7 +3,7 @@
 	<ion-grid class="noPadding">
 
 
-		<div class="left_content sidebar">
+		<!-- <div class="left_content sidebar">
 
 			<ion-header>
 				<ion-toolbar>
@@ -109,7 +109,7 @@
 				</ion-toolbar>
 			</ion-footer>
 
-		</div><!-- /.left_content -->
+		</div> --><!-- /.left_content -->
 
 
 		<ion-row>
@@ -149,97 +149,13 @@
 
 					<ion-list class="list_playlist reproducao">
 
-						<ion-item>
+						<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;">
 							<ion-thumbnail item-left>
 								<img src="assets/img/img_placehold_capa.png">
 							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
+							<h1>{{princSong.name}}</h1>
+							<h2>{{princSong.artist}}</h2>
+							<button ion-button clear item-right (tap)="toggleSong(princSong)">
 								<span class="ico_control"></span>
 								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
 							</button>
@@ -257,7 +173,7 @@
 					<ion-toolbar>
 						<ion-row>
 							<ion-col offset-6 col-6>
-								<button ion-button color="light" class="light" outline block>Encerrar reprodução</button>
+								<button ion-button color="light" class="light" [navPush]="findPage" outline block>Encerrar reprodução</button>
 							</ion-col>
 						</ion-row><!-- /.ion-row -->
 
@@ -285,99 +201,15 @@
 
 					<ion-list class="list_playlist reproducao">
 
-						<ion-item>
+						<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;">
 							<ion-thumbnail item-left>
 								<img src="assets/img/img_placehold_capa.png">
 							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
+							<h1>{{instSong.name}}</h1>
+							<h2>{{instSong.artist}}</h2>
+							<button ion-button clear item-right (tap)="toggleSong(instSong)">
 								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item class="active">
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-							</button>
-						</ion-item>
-
-						<ion-item>
-							<ion-thumbnail item-left>
-								<img src="assets/img/img_placehold_capa.png">
-							</ion-thumbnail>
-							<h1>Nome da música</h1>
-							<h2>Nome do artista</h2>
-							<button ion-button clear item-right>
-								<span class="ico_control"></span>
-								<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
+								<ion-icon ios="ios-pause" md="md-pause"></ion-icon>
 							</button>
 						</ion-item>
 
@@ -392,15 +224,15 @@
 
 
 
-	<ion-fab right bottom>
+<!-- 	<ion-fab right bottom>
 		<button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
 		<ion-fab-list side="left">
 			<button ion-fab menuToggle><ion-icon name="apps"></ion-icon></button>
-			<!--
+			
 			<button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
 			<button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
 			<button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-			-->
+			
 		</ion-fab-list>
-	</ion-fab>
+	</ion-fab> -->
 </ion-content>

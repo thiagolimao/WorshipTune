@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { SelectPage } from '../select/select';
 var FindPage = (function () {
     function FindPage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.selectPage = SelectPage;
     }
     return FindPage;
 }());

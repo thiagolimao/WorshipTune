@@ -15,21 +15,16 @@
 		</header>
 
 		<footer class="footer">
-			<button ion-button color="light" class="big" outline>Selecionar minhas músicas</button>
+			<button ion-button color="light" class="big" outline [navPush]="selectPage">Selecionar minhas músicas</button>
 		</footer>
 	</div><!-- /flex_type01 -->
 
 
 
-	<ion-fab right bottom>
+<!-- 	<ion-fab right bottom>
 		<button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
 		<ion-fab-list side="left">
 			<button ion-fab menuToggle><ion-icon name="apps"></ion-icon></button>
-			<!--
-			<button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-			<button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-			<button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-			-->
 		</ion-fab-list>
-	</ion-fab>
+	</ion-fab> -->
 </ion-content>

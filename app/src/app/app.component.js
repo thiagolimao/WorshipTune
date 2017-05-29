@@ -24,7 +24,8 @@ var MyApp = (function () {
         this.splashScreen = splashScreen;
         //rootPage: any = FindPage;
         //rootPage: any = SelectPage;
-        this.rootPage = PlaylistPage;
+        //rootPage: any = PlaylistPage;
+        this.rootPage = FindPage;
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
@@ -43,6 +44,11 @@ var MyApp = (function () {
             // Here you can do any higher level native things you might need.
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
+            cordova.plugins.Music.getSongs(function (list) {
+                console.log('music initialized!!');
+            }, function (e) {
+                console.log('music fail!!');
+            });
         });
     };
     MyApp.prototype.openPage = function (page) {

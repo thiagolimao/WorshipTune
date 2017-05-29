@@ -14,9 +14,9 @@ import { Platform } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { Insomnia } from '@ionic-native/insomnia';
 import { File } from '@ionic-native/file';
+import { PlayPage } from '../play/play';
 var SelectPage = (function () {
     function SelectPage(navCtrl, platform, geolocation, alertCtrl, insomnia, file) {
-        // constructor(public navCtrl: NavController) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.platform = platform;
@@ -24,47 +24,76 @@ var SelectPage = (function () {
         this.alertCtrl = alertCtrl;
         this.insomnia = insomnia;
         this.file = file;
+        this.activeSongs = [];
+        this.playlist = 'principal';
+        this.activeSongs['principal'] = [];
+        this.activeSongs['instrumental'] = [];
+        this.searchTerm = '';
+        this.playPage = PlayPage;
         platform.ready().then(function () {
             _this.insomnia.keepAwake()
                 .then(function () { return console.log('Display ativado com sucesso'); }, function () { return console.log('Erro ao ativar display'); });
-            // get current position
-            // geolocation.getCurrentPosition().then(pos => {
-            //   let alert = this.alertCtrl.create({
-            //     title: 'Low battery',
-            //     subTitle: 'lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude,
-            //     buttons: ['Dismiss']
-            //   });
-            //   alert.present();
-            // });
-            // this.file.resolveLocalFilesystemUrl(this.file.dataDirectory).then(entry =>
-            //   {
-            //     // let alert = this.alertCtrl.create({
-            //     //   title: 'Mensagem',
-            //     //   subTitle: entry,
-            //     //   buttons: ['Dismiss']
-            //     // });
-            //     // alert.present();
-            //     console.log();
-            //   }
-            // )
-            cordova.file.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
-                console.log(fileSystem);
-            });
-            // this.file.checkDir(this.file.dataDirectory, 'mydir').then(_ => console.log('Directory exists')).catch(err => console.log('Directory doesnt exist'));
-            // let filedir = file.documentsDirectory;
-            // let filedir = 'Library';
-            // console.log(this.file);
-            // console.log(file.documentsDirectory);
-            // let filedir = 'Library';
-            // this.file.listDir(filedir, '').then(list => list.map(musicObj => console.log(musicObj.name)));
-            // this.file.listDir(filedir, '').then(list => console.log(list));
-            // const watch = geolocation.watchPosition().subscribe(pos => {
-            //   console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-            // });
-            // to stop watching
-            // watch.unsubscribe();
         });
+        this.getSongs().then(function (list) { _this.filteredSongs = _this.songs = list; });
     }
+    SelectPage.prototype.getSongs = function () {
+        return new Promise(function (resolve, reject) {
+            cordova.plugins.Music.getSongs(function (list) {
+                resolve(list);
+            }, function (e) {
+                reject(e);
+            });
+        });
+    };
+    SelectPage.prototype.setActive = function (obj) {
+        var index = this.activeSongs[this.playlist].indexOf(obj);
+        if (index > -1)
+            this.activeSongs[this.playlist].splice(index, 1);
+        else
+            this.activeSongs[this.playlist].push(obj);
+        // console.log(this.activeSongs);
+    };
+    SelectPage.prototype.activeArray = function (obj) {
+        // console.log(this.activeSongs.indexOf(obj) > -1);
+        return this.activeSongs[this.playlist].indexOf(obj) > -1;
+        // return true;
+    };
+    SelectPage.prototype.playSong = function (obj) {
+        cordova.plugins.Music.playSong(
+        //id of song
+        obj.id, 
+        // onComplete callback
+        function (msg) {
+            console.log("audio completed");
+        }, 
+        // error callback
+        function (e) {
+            console.log("Error getting message=" + e);
+        });
+    };
+    SelectPage.prototype.stopSong = function () {
+        cordova.plugins.Music.stopSong(
+        // success callback
+        function (msg) {
+            console.log("audio stopped");
+        }, 
+        // error callback
+        function (e) {
+            console.log("Error getting message=" + e);
+        });
+    };
+    SelectPage.prototype.filterItems = function () {
+        var _this = this;
+        this.filteredSongs = this.songs.filter(function (song) {
+            return song.name.toLowerCase().indexOf(_this.searchTerm.toLowerCase()) > -1 || song.artist.toLowerCase().indexOf(_this.searchTerm.toLowerCase()) > -1;
+        });
+    };
+    SelectPage.prototype.beginPlay = function () {
+        this.navCtrl.push(this.playPage, {
+            songs: this.songs,
+            activeSongs: this.activeSongs
+        });
+    };
     return SelectPage;
 }());
 SelectPage = __decorate([

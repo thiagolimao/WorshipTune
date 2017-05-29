@@ -10,6 +10,7 @@ import { FindPage }  from '../pages/find/find';
 import { SelectPage }  from '../pages/select/select';
 import { PlaylistPage }  from '../pages/playlist/playlist';
 import { PlayPage }  from '../pages/play/play';
+declare let cordova: any;
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +21,7 @@ export class MyApp {
   //rootPage: any = FindPage;
   //rootPage: any = SelectPage;
   //rootPage: any = PlaylistPage;
-  rootPage: any = PlayPage;
+  rootPage: any = FindPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -46,6 +47,14 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      cordova.plugins.Music.getSongs(
+          function (list) {
+              console.log('music initialized!!')
+          },
+          function (e) {
+              console.log('music fail!!')
+          }
+      );
     });
   }
 

@@ -84,7 +84,7 @@
 
 				<ion-footer>
 					<ion-toolbar>
-						<button ion-button color="light" outline block>Iniciar reprodução</button>
+						<button ion-button color="light" outline block (tap)="beginPlay()">Iniciar reprodução</button>
 					</ion-toolbar>
 				</ion-footer>
 
@@ -117,11 +117,8 @@
 									<ion-item>
 										<ion-label>Ordenar por...</ion-label>
 										<ion-select interface="action-sheet">
-											<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
-											<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
-											<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
-											<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
-											<ion-option value="lorem ipsum">Lorem ipsum</ion-option>
+											<ion-option value="lorem ipsum">Titulo</ion-option>
+											<ion-option value="lorem ipsum">Artista</ion-option>
 										</ion-select>
 									</ion-item>
 								</ion-list><!-- /item_order -->
@@ -161,15 +158,15 @@
 
 
 
-	<ion-fab right bottom>
+<!-- 	<ion-fab right bottom>
 		<button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
 		<ion-fab-list side="left">
 			<button ion-fab menuToggle><ion-icon name="apps"></ion-icon></button>
-			<!--
+			
 			<button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
 			<button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
 			<button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-			-->
+			
 		</ion-fab-list>
-	</ion-fab>
+	</ion-fab> -->
 </ion-content>

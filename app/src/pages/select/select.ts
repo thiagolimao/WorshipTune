@@ -5,7 +5,7 @@ import { Platform } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import { Insomnia } from '@ionic-native/insomnia';
 import { File } from '@ionic-native/file';
-// import { Music } from '@ionic-native/music';
+import { PlayPage }  from '../play/play';
 declare let cordova: any;
 @Component({
   selector: 'page-select',
@@ -19,6 +19,7 @@ export class SelectPage {
   activeSongs: Array<any>;
   playlist: any;
   searchTerm: any;
+  playPage : any;
 
   constructor(public navCtrl: NavController, private platform: Platform, private geolocation: Geolocation, private alertCtrl: AlertController, private insomnia: Insomnia, private file: File) {
       this.activeSongs =  [];
@@ -26,6 +27,7 @@ export class SelectPage {
       this.activeSongs['principal'] = [];
       this.activeSongs['instrumental'] = [];
       this.searchTerm = '';
+      this.playPage = PlayPage;
 
       platform.ready().then(() => {
         this.insomnia.keepAwake()
@@ -103,6 +105,14 @@ export class SelectPage {
               return song.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1 || song.artist.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
           });
     }
+
+    beginPlay(){
+      this.navCtrl.push(this.playPage, {
+        songs: this.songs,
+        activeSongs: this.activeSongs
+      });
+    }
+
 
 
   }
