@@ -182,6 +182,18 @@ UTEIS
 	overflow: hidden;
 }
 
+// .reorder-enabled ion-reorder
+// {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 0;
+// 	z-index: 9999;
+// 	background: #ccc;
+// 	width: 100%;
+// 	height: 100%;
+// 	max-width: 100%;
+// 	display: block;
+// }
 
 /* ==================================================================
 BRACKGROUNDS
@@ -307,7 +319,7 @@ DEFAULTS
 			margin-bottom: 54px;
 			padding-top: 15px;
 			padding-left: 17px;
-			padding-right: 17px;
+			padding-right: 0;
 		}
 		.list_playlist
 		{
@@ -322,6 +334,11 @@ DEFAULTS
 					{
 						width: 66px;
 					}
+				}
+
+				.item-inner
+				{
+					padding-right: 0;
 				}
 			}
 		}
@@ -676,6 +693,8 @@ LISTS
 				h1
 				{
 					margin-top: -3px;
+					max-height: 37px;
+					overflow: hidden;
 				}
 			}
 			ion-avatar,
@@ -1177,6 +1196,7 @@ PLAY
 				margin-top: 70px !important;
 				margin-bottom: 100px !important;
 				padding-left: 15px;
+				padding-right: 12px;
 			}
 		}
 
