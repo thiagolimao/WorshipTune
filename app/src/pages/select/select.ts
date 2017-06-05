@@ -63,13 +63,10 @@ export class SelectPage {
         this.activeSongs[this.playlist].splice(index, 1);
       else
         this.activeSongs[this.playlist].push(obj);
-      // console.log(this.activeSongs);
     }
 
     activeArray(obj) {
-      // console.log(this.activeSongs.indexOf(obj) > -1);
       return this.activeSongs[this.playlist].indexOf(obj) > -1;
-      // return true;
     }
 
     playSong(obj) {

@@ -1,4 +1,4 @@
-<ion-content class="bg_secundary play_music">
+<ion-content class="bg_secundary play_music" no-bounce>
 
 	<!-- ########################################### -->
 	<!-- ## INSERIR A CLASSE .open QUANDO O BOTAO ## -->
@@ -8,113 +8,7 @@
 	<!-- ##            EM .close_side             ## -->
 	<!-- ########################################### -->
 
-	<ion-grid class="noPadding sidebar_control open">
-
-		<div class="left_content sidebar">
-
-			<ion-header>
-				<ion-toolbar>
-
-					<button ion-button class="close_side">
-
-						<h1 class="type01 img">
-							<span>Suas</span>
-							Músicas
-							<ion-badge>127</ion-badge>
-						</h1>
-
-					</button>
-
-				</ion-toolbar>
-			</ion-header>
-
-			<ion-content>
-
-				<ion-list class="list_playlist insert">
-
-					<ion-item class="item_filled">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Ent	ao minh'alma canta a ti senhor</h1>
-						<h2>Ministério Apascentar de Nova Iguaçu</h2>
-					</ion-item>
-
-					<ion-item class="item_filled">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="item_filled">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-					<ion-item class="">
-						<ion-thumbnail item-left>
-							<span class="ico_select"></span>
-							<img src="assets/img/img_placehold_pq.png">
-						</ion-thumbnail>
-						<h1>Nome da música</h1>
-						<h2>Nome do artista</h2>
-					</ion-item>
-
-				</ion-list>
-
-			</ion-content>
-
-			<ion-footer>
-				<ion-toolbar>
-					<button ion-button color="light" outline block>Inserir Músicas</button>
-				</ion-toolbar>
-			</ion-footer>
-
-		</div><!-- /.left_content -->
+	<ion-grid class="noPadding sidebar_control">
 
 		<div class="play_content">
 
@@ -140,7 +34,7 @@
 											Principal
 										</h1>
 
-										<button ion-button item-right class="active">
+										<button ion-button item-right (tap)="toggleMenu('menuPrincipais')" [ngClass]="{'active' : isMenuOpen('menuPrincipais')}">
 											<span class="ico_add"></span>
 										</button>
 									</div><!-- /header_content -->
@@ -155,24 +49,13 @@
 
 						<ion-list class="list_playlist reproducao">
 
-							<ion-item class="active">
-								<ion-thumbnail item-left>
-									<img src="assets/img/img_placehold_capa.png">
-								</ion-thumbnail>
-								<h1>Nome da música</h1>
-								<h2>Nome do artista</h2>
-								<button ion-button item-right>
-									<span class="ico_control"></span>
-								</button>
-							</ion-item>
-
-							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;">
+							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" [ngClass]="{'active' : isPlayingSong('principal', princSong)}">
 								<ion-thumbnail item-left>
 									<img src="assets/img/img_placehold_capa.png">
 								</ion-thumbnail>
 								<h1>{{princSong.name}}</h1>
 								<h2>{{princSong.artist}}</h2>
-								<button ion-button clear item-right (tap)="toggleSong(princSong)">
+								<button ion-button clear item-right (tap)="toggleSong('principal', princSong)">
 									<span class="ico_control"></span>
 									<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
 								</button>
@@ -203,7 +86,7 @@
 											Instrumental
 										</h1>
 
-										<button ion-button item-right>
+										<button ion-button item-right (tap)="toggleMenu('menuInstrumentais')" [ngClass]="{'active' : isMenuOpen('menuInstrumentais')}">
 											<span class="ico_add"></span>
 										</button>
 									</div><!-- /header_content -->
@@ -218,15 +101,15 @@
 
 						<ion-list class="list_playlist reproducao">
 
-							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;">
+							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" [ngClass]="{'active' : isPlayingSong('instrumental',instSong)}">
 								<ion-thumbnail item-left>
 									<img src="assets/img/img_placehold_capa.png">
 								</ion-thumbnail>
 								<h1>{{instSong.name}}</h1>
 								<h2>{{instSong.artist}}</h2>
-								<button ion-button clear item-right (tap)="toggleSong(instSong)">
+								<button ion-button clear item-right (tap)="toggleSong('instrumental',instSong)">
 									<span class="ico_control"></span>
-									<ion-icon ios="ios-pause" md="md-pause"></ion-icon>
+									<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
 								</button>
 							</ion-item>
 

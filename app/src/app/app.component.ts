@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,6 +17,8 @@ declare let cordova: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  public songsApp:any;
+  public activeSongsApp:any;
 
   //rootPage: any = FindPage;
   //rootPage: any = SelectPage;
@@ -25,8 +27,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
     this.initializeApp();
+    this.songsApp = [];
+    this.activeSongsApp = [];
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -55,6 +59,12 @@ export class MyApp {
               console.log('music fail!!')
           }
       );
+
+    this.events.subscribe('songsLoaded', songs => {
+      this.songsApp = songs[0];
+      this.activeSongsApp = songs[1];
+    });
+
     });
   }
 
@@ -63,4 +73,28 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  menuClosed() {
+      this.events.publish('menuOpen', 'nomenu');
+  }
+
+   menuOpened(menu) {
+      this.events.publish('menuOpen', menu);
+  }
+
+  activeArrayApp(playlist, obj) {
+    return this.activeSongsApp[playlist].indexOf(obj) > -1;
+  }
+
+  updatePlaylist(playlist, obj) {
+
+    var index = this.activeSongsApp[playlist].indexOf(obj);
+    if(index > -1)
+      this.activeSongsApp[playlist].splice(index, 1);
+    else
+      this.activeSongsApp[playlist].push(obj);
+
+    this.events.publish('playlistUpdate', [playlist, this.activeSongsApp[playlist]]);
+  }
+
 }

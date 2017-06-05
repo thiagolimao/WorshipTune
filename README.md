@@ -9,3 +9,5 @@
 * run ionic browser: `cd app` + `ionic serve`
 
 * run ionic tablet: `ionic run ios --device`
+
+* run ionic livereload: `ionic run ios --device -l`

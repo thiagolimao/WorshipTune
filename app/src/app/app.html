@@ -15,5 +15,91 @@
 
 </ion-menu> -->
 
+    <ion-menu side="left" type="overlay" [content]="content" id="menuPrincipais" (ionOpen)="menuOpened('menuPrincipais')" (ionClose)="menuClosed()">
+
+      <ion-header>
+        <ion-toolbar>
+
+          <button ion-button class="close_side">
+
+            <h1 class="type01 img">
+              <span>Suas</span>
+              Músicas
+              <ion-badge>{{songsApp.length}}</ion-badge>
+            </h1>
+
+          </button>
+
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+
+        <ion-list class="list_playlist insert">
+
+          <ion-item *ngFor="let song of songsApp;" [ngClass]="{'item_filled' : activeArrayApp('principal',song)}" (tap)="updatePlaylist('principal',song)">
+            <ion-thumbnail item-left>
+              <span class="ico_select"></span>
+              <img src="assets/img/img_placehold_pq.png">
+            </ion-thumbnail>
+            <h1>{{song.name}}</h1>
+            <h2>{{song.artist}}</h2>
+          </ion-item>
+
+        </ion-list>
+
+      </ion-content>
+
+      <ion-footer>
+        <ion-toolbar>
+          <button ion-button color="light" outline block>Inserir Músicas</button>
+        </ion-toolbar>
+      </ion-footer>
+
+    </ion-menu><!-- /.left_content -->
+
+  <ion-menu side="left" type="overlay" [content]="content" id="menuInstrumentais" (ionOpen)="menuOpened('menuInstrumentais')" (ionClose)="menuClosed()">
+
+      <ion-header>
+        <ion-toolbar>
+
+          <button ion-button class="close_side">
+
+            <h1 class="type01 img">
+              <span>Suas</span>
+              Músicas
+              <ion-badge>{{songsApp.length}}</ion-badge>
+            </h1>
+
+          </button>
+
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+
+        <ion-list class="list_playlist insert">
+
+          <ion-item *ngFor="let song of songsApp;" [ngClass]="{'item_filled' : activeArrayApp('instrumental',song)}" (tap)="updatePlaylist('instrumental',song)">
+            <ion-thumbnail item-left>
+              <span class="ico_select"></span>
+              <img src="assets/img/img_placehold_pq.png">
+            </ion-thumbnail>
+            <h1>{{song.name}}</h1>
+            <h2>{{song.artist}}</h2>
+          </ion-item>
+
+        </ion-list>
+
+      </ion-content>
+
+      <ion-footer>
+        <ion-toolbar>
+          <button ion-button color="light" outline block>Inserir Músicas</button>
+        </ion-toolbar>
+      </ion-footer>
+
+    </ion-menu><!-- /.left_content -->
+
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
