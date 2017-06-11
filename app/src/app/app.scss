@@ -1010,8 +1010,13 @@ LISTS
 
 		&.item_none
 		{
-			margin-top: 55%;
+			margin-top: 50%;
 			text-align: center;
+
+			ion-reorder
+			{
+				display: none !important;
+			}
 			img
 			{
 				display: inline-block;
