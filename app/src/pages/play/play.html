@@ -1,13 +1,5 @@
 <ion-content class="bg_secundary play_music" no-bounce>
 
-	<!-- ########################################### -->
-	<!-- ## INSERIR A CLASSE .open QUANDO O BOTAO ## -->
-	<!-- ##     ADICIONAR MUSICA FOR CLICADO      ## -->
-	<!-- ########################################### -->
-	<!-- ## RETIRAR A CLASSE open QUANDO CLICAR   ## -->
-	<!-- ##            EM .close_side             ## -->
-	<!-- ########################################### -->
-
 	<ion-grid class="noPadding sidebar_control">
 
 		<div class="play_content">
@@ -21,7 +13,7 @@
 
 							<ion-row>
 								<ion-col>
-									<img src="assets/img/logo_worshop_pq.png" class=""/>
+									<img src="assets/img/logo_worshop_pq.png" class="ico_logo"/>
 								</ion-col>
 							</ion-row><!-- /.ion-row -->
 
@@ -49,17 +41,25 @@
 
 						<ion-list class="list_playlist reproducao">
 
-							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" [ngClass]="{'active' : isPlayingSong('principal', princSong)}">
-								<ion-thumbnail item-left>
-									<img src="assets/img/img_placehold_capa.png">
-								</ion-thumbnail>
-								<h1>{{princSong.name}}</h1>
-								<h2>{{princSong.artist}}</h2>
-								<button ion-button clear item-right (tap)="toggleSong('principal', princSong)">
-									<span class="ico_control"></span>
-									<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-								</button>
-							</ion-item>
+							<ion-card *ngFor="let princSong of activeSongs['principal']; let i = index;" [ngClass]="{'active' : isPlayingSong('principal', princSong)}">
+							  	<ion-item>
+								  	<ion-thumbnail item-left>
+										<img src="assets/img/img_placehold_capa.png">
+									</ion-thumbnail>
+									<h1>{{princSong.name}}</h1>
+									<h2>{{princSong.artist}}</h2>
+									<button ion-button clear item-right (tap)="toggleSong('principal', princSong)">
+										<span class="ico_control"></span>
+									</button>
+								</ion-item>
+
+							  	<ion-card-content>
+							  		<ion-range min="0" max="200">
+										<!-- <ion-label range-left>0</ion-label> -->
+										<ion-label range-right>3:25</ion-label>
+									</ion-range>
+								</ion-card-content>
+							</ion-card>
 
 						</ion-list>
 
@@ -73,7 +73,8 @@
 						<ion-toolbar>
 							<ion-row>
 								<ion-col offset-6 col-6>
-									<button ion-button color="light" class="light" (tap)="stopPlayState()" outline block>Encerrar reprodução</button>
+									<!-- <button ion-button color="light" class="light" (tap)="stopPlayState()" outline block>Encerrar reprodução</button> -->
+									<button ion-button color="light" class="light" (tap)="showConfirm()" outline block>Encerrar reprodução</button>
 								</ion-col>
 							</ion-row><!-- /.ion-row -->
 
@@ -101,17 +102,25 @@
 
 						<ion-list class="list_playlist reproducao">
 
-							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" [ngClass]="{'active' : isPlayingSong('instrumental',instSong)}">
-								<ion-thumbnail item-left>
-									<img src="assets/img/img_placehold_capa.png">
-								</ion-thumbnail>
-								<h1>{{instSong.name}}</h1>
-								<h2>{{instSong.artist}}</h2>
-								<button ion-button clear item-right (tap)="toggleSong('instrumental',instSong)">
-									<span class="ico_control"></span>
-									<!-- <ion-icon ios="ios-pause" md="md-pause"></ion-icon> -->
-								</button>
-							</ion-item>
+							<ion-card *ngFor="let instSong of activeSongs['instrumental']; let i = index;" [ngClass]="{'active' : isPlayingSong('instrumental',instSong)}">
+							  	<ion-item>
+								  	<ion-thumbnail item-left>
+										<img src="assets/img/img_placehold_capa.png">
+									</ion-thumbnail>
+									<h1>{{instSong.name}}</h1>
+									<h2>{{instSong.artist}}</h2>
+									<button ion-button clear item-right (tap)="toggleSong('instrumental',instSong)">
+										<span class="ico_control"></span>
+									</button>
+								</ion-item>
+
+							  	<ion-card-content>
+							  		<ion-range min="0" max="200">
+										<!-- <ion-label range-left>0</ion-label> -->
+										<ion-label range-right>3:25</ion-label>
+									</ion-range>
+								</ion-card-content>
+							</ion-card>
 
 						</ion-list>
 

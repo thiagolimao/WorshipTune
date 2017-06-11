@@ -20,15 +20,11 @@
       <ion-header>
         <ion-toolbar>
 
-          <button ion-button class="close_side">
-
             <h1 class="type01 img">
               <span>Suas</span>
               Músicas
               <ion-badge>{{songsApp.length}}</ion-badge>
             </h1>
-
-          </button>
 
         </ion-toolbar>
       </ion-header>
@@ -50,28 +46,24 @@
 
       </ion-content>
 
-      <ion-footer>
+      <!-- <ion-footer>
         <ion-toolbar>
           <button ion-button color="light" outline block>Inserir Músicas</button>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer> -->
 
     </ion-menu><!-- /.left_content -->
 
-  <ion-menu side="left" type="overlay" [content]="content" id="menuInstrumentais" (ionOpen)="menuOpened('menuInstrumentais')" (ionClose)="menuClosed()">
+    <ion-menu side="left" type="overlay" [content]="content" id="menuInstrumentais" (ionOpen)="menuOpened('menuInstrumentais')" (ionClose)="menuClosed()">
 
       <ion-header>
         <ion-toolbar>
-
-          <button ion-button class="close_side">
 
             <h1 class="type01 img">
               <span>Suas</span>
               Músicas
               <ion-badge>{{songsApp.length}}</ion-badge>
             </h1>
-
-          </button>
 
         </ion-toolbar>
       </ion-header>
@@ -93,11 +85,11 @@
 
       </ion-content>
 
-      <ion-footer>
+      <!-- <ion-footer>
         <ion-toolbar>
           <button ion-button color="light" outline block>Inserir Músicas</button>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer> -->
 
     </ion-menu><!-- /.left_content -->
 

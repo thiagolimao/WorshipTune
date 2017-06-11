@@ -45,16 +45,40 @@
 								Principal
 							</h1>
 
+							<!-- item vazio -->
+							<ion-item class="item_none">
+								<img src="assets/img/icon_sem musica.png">
+							</ion-item>
+							<!-- /item vazio -->
+
+							<ion-item class="item_filled">
+								<ion-thumbnail item-left>
+									<ion-badge>1</ion-badge>
+									<ion-icon class="ico_circle_play"></ion-icon>
+									<img src="assets/img/img_placehold_pq.png">
+								</ion-thumbnail>
+								<h1>Novo dia, novo tempo</h1>
+								<h2>Renascer Praise</h2>
+							</ion-item>
+
+							<ion-item class="item_filled active">
+								<ion-thumbnail item-left>
+									<ion-badge>1</ion-badge>
+									<ion-icon class="ico_circle_play"></ion-icon>
+									<img src="assets/img/img_placehold_pq.png">
+								</ion-thumbnail>
+								<h1>Novo dia, novo tempo</h1>
+								<h2>Renascer Praise</h2>
+							</ion-item>
 
 							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" class="item_filled">
 								<ion-thumbnail item-left>
 									<ion-badge>{{i + 1}}</ion-badge>
+									<ion-icon class="ico_circle_play"></ion-icon>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
 								<h1>{{princSong.name}}</h1>
 								<h2>{{princSong.artist}}</h2>
-								<!-- <ion-icon name="md-arrow-dropright"></ion-icon> -->
-								<!-- <ion-icon name="ios-swap-outline"></ion-icon> -->
 							</ion-item>
 						</ion-list>
 
@@ -65,9 +89,16 @@
 								Instrumental
 							</h1>
 
+							<!-- item vazio -->
+							<ion-item class="item_none">
+								<img src="assets/img/icon_sem musica.png">
+							</ion-item>
+							<!-- /item vazio -->
+
 							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" class="item_filled">
 								<ion-thumbnail item-left>
 									<ion-badge>{{i + 1}}</ion-badge>
+									<ion-icon class="ico_circle_play"></ion-icon>
 									<img src="assets/img/img_placehold_pq.png">
 								</ion-thumbnail>
 								<h1>{{instSong.name}}</h1>
@@ -84,7 +115,8 @@
 
 				<ion-footer>
 					<ion-toolbar>
-						<button ion-button color="light" outline block (tap)="beginPlay()">Iniciar reprodução</button>
+						<!-- <button ion-button color="light" outline block (tap)="beginPlay()">Iniciar reprodução</button> -->
+						<button ion-button color="light" outline block (tap)="iniciarReproducao()">Iniciar reprodução</button>
 					</ion-toolbar>
 				</ion-footer>
 
@@ -99,8 +131,8 @@
 							<ion-col col-6>
 								<img src="assets/img/logo_worshop_pq.png" class="ico_logo"/>
 							</ion-col>
-							<ion-col offset-1 col-5>
-								<ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()"></ion-searchbar>
+							<ion-col col-6>
+								<ion-searchbar  placeholder="procurar pela música" [(ngModel)]="searchTerm" (ionInput)="filterItems()"></ion-searchbar>
 							</ion-col>
 						</ion-row><!-- /.ion-row -->
 
@@ -112,13 +144,13 @@
 									<ion-badge>{{ filteredSongs?.length }}</ion-badge>
 								</h1>
 							</ion-col>
-							<ion-col offset-3 col-3>
+							<ion-col offset-2 col-4>
 								<ion-list class="item_order">
 									<ion-item>
 										<ion-label>Ordenar por...</ion-label>
 										<ion-select interface="action-sheet">
-											<ion-option value="lorem ipsum">Titulo</ion-option>
-											<ion-option value="lorem ipsum">Artista</ion-option>
+											<ion-option value="titulo">Título</ion-option>
+											<ion-option value="artista">Artista</ion-option>
 										</ion-select>
 									</ion-item>
 								</ion-list><!-- /item_order -->

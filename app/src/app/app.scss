@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6
 		font-size: 30px;
 		line-height: 1;
 		font-weight: 300;
+		color: #ffffff;
 		span
 		{
 			font-size: .7em;
@@ -140,6 +141,7 @@ UTEIS
 	background-image: url('../assets/img/ico_select.png');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 }
 
 .ico_add
@@ -151,6 +153,7 @@ UTEIS
 	background-image: url('../assets/img/ico_add.png');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 40% auto;
 }
 
 .ico_play
@@ -162,6 +165,25 @@ UTEIS
 	background-image: url('../assets/img/ico_play.png');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 40% auto;
+}
+
+.ico_circle_play
+{
+	width: 60px;
+	height: 60px;
+
+	background-image: url('../assets/img/ico_circle_play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.ico_circle_pause
+{
+	@extend .ico_circle_play;
+
+	background-image: url('../assets/img/ico_circle_pause.png');
 }
 
 .ico_pause
@@ -173,6 +195,7 @@ UTEIS
 	background-image: url('../assets/img/ico_pause.png');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 40% auto;
 }
 
 .text-overflow
@@ -181,19 +204,6 @@ UTEIS
 	white-space: nowrap;
 	overflow: hidden;
 }
-
-// .reorder-enabled ion-reorder
-// {
-// 	position: absolute;
-// 	bottom: 0;
-// 	left: 0;
-// 	z-index: 9999;
-// 	background: #ccc;
-// 	width: 100%;
-// 	height: 100%;
-// 	max-width: 100%;
-// 	display: block;
-// }
 
 /* ==================================================================
 BRACKGROUNDS
@@ -238,6 +248,204 @@ FLEX TYPES
 	/* align-items: center; */
 }
 
+
+/* ==================================================================
+ALERTS
+================================================================== */
+.alert-ios .alert-wrapper
+{
+	overflow: initial;
+	max-width: 380px;
+
+	.alert-head
+	{
+		min-height: 60px;
+
+		.alert-title
+		{
+			width: 120px;
+			height: 120px;
+
+			display: block;
+
+			border-radius: 50%;
+			border: solid 6px #ffffff;
+
+			text-indent: -9999px;
+
+			background-image: url(../assets/img/img_placehold_pq.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			position: absolute;
+			top: 0;
+			left: 50%;
+
+			margin-left: -63px;
+			margin-top: -63px;
+		}
+	}
+
+	.alert-message
+	{
+		padding: 0 35px 21px;
+		font-size: 22px;
+
+		color: $secundary-color;
+	}
+
+	.alert-button-group
+	{
+		padding: 0 15px 20px 15px;
+		.alert-button
+		{
+			border: none;
+			padding: 0 10px;
+			.button-inner
+			{
+				border: solid 2px transparent;
+				border-radius: 30px;
+				text-transform: uppercase;
+
+				font-size: 15px;
+			}
+
+			&.activated
+			{
+				background-color: transparent;
+			}
+
+			&:first-child
+			{
+				.button-inner
+				{
+					border-color: $secundary-color;
+					color: $secundary-color;
+				}
+
+				&.activated
+				{
+					.button-inner
+					{
+						background-color: $secundary-color;
+						color: #ffffff;
+						opacity: .6;
+					}
+				}
+			}
+
+			&:last-child
+			{
+				.button-inner
+				{
+					background-color:  $primary-color;
+					border-color: $primary-color;
+					color: #ffffff;
+				}
+
+				&.activated
+				{
+					.button-inner
+					{
+						opacity: .6;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* ==================================================================
+MENU
+================================================================== */
+#menuPrincipais,
+#menuInstrumentais
+{
+	.menu-inner
+	{
+		.toolbar-background-ios,
+		.content-ios
+		{
+			@extend .bg_primary;
+		}
+
+		.header-ios,
+		.footer-ios
+		{
+			.toolbar-background-ios
+			{
+				border: none;
+			}
+		}
+
+
+		.header
+		{
+			padding: 2px 0 8px 14px;
+			position: relative;
+
+			h1.img
+			{
+				background-position: left 5px;
+				padding-left: 59px;
+				background-size: 44px;
+
+				.badge
+			    {
+					height: 24px;
+					line-height: 25px;
+
+					padding: 0 8px;
+
+					right: -10px;
+
+					font-size: 1.6rem;
+					font-weight: 400;
+
+				    background-color: #ffffff;
+				    color: $primary-color;
+				}
+
+				&:after
+				{
+					position: absolute;
+					top: 10px;
+					right: -4px;
+
+					content: "";
+
+					width: 30px;
+					height: 30px;
+
+					display: block;
+
+					background-image: url('../assets/img/ico_close.png');
+					background-repeat: no-repeat;
+					background-position: cover;
+				}
+			}
+		}
+
+
+		.content
+		{
+			.scroll-content
+			{
+				padding-left: 15px;
+				padding-right: 12px;
+			}
+		}
+
+		.footer
+		{
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+
+
+	}
+}
 
 /* ==================================================================
 DEFAULTS
@@ -340,6 +548,23 @@ DEFAULTS
 				{
 					padding-right: 0;
 				}
+
+				ion-reorder
+				{
+					opacity: 1;
+					margin-top: 17px;
+
+					ion-icon
+					{
+						font-size: 1em;
+						transform: rotate(90deg);
+
+						&:before
+						{
+							content: "\f21f";
+						}
+					}
+				}
 			}
 		}
 	}
@@ -428,6 +653,13 @@ BUTTONS
 	{
 		border-color: $light-color;
 		color: $light-color;
+
+		&.activated
+		{
+			border-color: $primary-color;
+			color: #ffffff;
+			background-color: $primary-color;
+		}
 	}
 }
 
@@ -453,6 +685,7 @@ FORM
 		    background: transparent;
 		    padding-left: 16px;
 		    font-size: 1.6rem;
+		    color: #ffffff;
 		}
 
 		.searchbar-search-icon
@@ -515,6 +748,7 @@ FORM
 	.label {
 	    margin-left: 16px;
 	    color: $light-color;
+	    margin-right: 0;
 	}
 
 	.select .select-icon .select-icon-inner
@@ -523,6 +757,12 @@ FORM
 		border-top: 8px solid;
 		border-right: 8px solid transparent;
 		border-left: 8px solid transparent;
+		color: $light-color;
+	}
+
+	.select-text
+	{
+		font-size: 14px;
 		color: $light-color;
 	}
 }
@@ -601,6 +841,7 @@ LISTS
 		ion-thumbnail
 	    {
 	    	position: relative;
+
 
 			ion-img,
 			img
@@ -700,12 +941,81 @@ LISTS
 			ion-avatar,
 			ion-thumbnail
 			{
+				&:after
+				{
+					content: "";
+					width: 60px;
+					height: 60px;
+
+					background-color: $secundary-color;
+
+					top: 3px;
+					left: 3px;
+
+					display: block;
+
+					position: absolute;
+
+					opacity: .4;
+
+					border-radius: 5px !important;
+					// border: solid 2px #ffffff !important;
+				}
+
+		    	.ico_circle_play
+			    {
+			    	position: absolute;
+				    top: 14px;
+				    left: 50%;
+
+					width: 40px;
+					height: 40px;
+
+					margin-left: -20px;
+
+					z-index: 9000;
+			    }
+
+		    	.badge
+			    {
+			    	z-index: 9999;
+			    }
+
 				ion-img,
 				img
 				{
 					border-radius: 8px !important;
 					border: solid 3px #ffffff !important;
 				}
+			}
+
+			&.active
+			{
+				ion-avatar,
+				ion-thumbnail
+				{
+			    	.ico_circle_play
+				    {
+						@extend .ico_circle_pause;
+				    }
+
+					ion-img,
+					img
+					{
+						// border-color: $secundary-color !important;
+					}
+				}
+			}
+		}
+
+		&.item_none
+		{
+			margin-top: 55%;
+			text-align: center;
+			img
+			{
+				display: inline-block;
+				max-width: 60%;
 			}
 		}
 
@@ -776,8 +1086,8 @@ LISTS
 					&:after
 					{
 						content: "";
-						width: 62px;
-						height: 62px;
+						width: 64px;
+						height: 64px;
 
 						background-color: $secundary-color;
 
@@ -878,7 +1188,8 @@ LISTS
 
 	&.reproducao
 	{
-		.item
+		// .item,
+		.card
 		{
 			background-color:  $dark-color;
 	    	border-bottom: none;
@@ -888,10 +1199,62 @@ LISTS
 	    	border-radius: 6px;
 
 	    	padding: 17px 0 15px 19px;
+	    	margin: 0 0 12px 0;
+
+	    	width: 100%;
+
+	    	.item
+	    	{
+	    		padding: 0;
+	    		border-bottom: none;
+	    	}
+
+	    	.card-content
+	    	{
+	    		padding: 0 19px 0 0;
+
+	    		.range
+	    		{
+	    			padding: 0;
+
+	    			position: relative;
+					visibility: hidden;
+
+	    			.range-slider
+	    			{
+	    				height: 0;
+	    			}
+
+					.range-bar
+					{
+						height: 4px;
+						background: #971a3e;
+						top: 4px;
+					}
+
+					.range-bar-active
+					{
+						background: #ffffff;
+					}
+
+					.range-knob-handle
+					{
+						display: none;
+						top: 6px;
+					}
+
+					.label
+					{
+						position: absolute;
+						right: 0;
+						top: -15px;
+					}
+				}
+	    	}
 
 			.item-inner
 			{
-			    margin-right: 18px;
+			    margin-right: 12px;
 			}
 
 	    	ion-avatar,
@@ -936,7 +1299,7 @@ LISTS
 				width: 50px;
 				height: 50px;
 
-				margin:  0;
+				margin:  -14px 0 0 0;
 
 				display: block;
 
@@ -953,6 +1316,12 @@ LISTS
 			&.active
 			{
 				background-color: $primary-color;
+
+
+	    		.range
+	    		{
+					visibility: visible;
+	    		}
 
 				ion-label
 				{
@@ -978,9 +1347,9 @@ LISTS
 					background-color: #ffffff;
 					position: relative;
 
-					-webkit-box-shadow: 0px 0px 5px 5px rgba(255,255,255,0.5);
-					-moz-box-shadow: 0px 0px 5px 5px rgba(255,255,255,0.5);
-					box-shadow: 0px 0px 5px 5px rgba(255,255,255,0.5);
+					-webkit-box-shadow: 0px 0px 4px 4px rgba(255,255,255,0.5);
+					-moz-box-shadow: 0px 0px 4px 4px rgba(255,255,255,0.5);
+					box-shadow: 0px 0px 4px 4px rgba(255,255,255,0.5);
 
 					.ico_control
 					{
@@ -1089,119 +1458,9 @@ PLAY
 	{
 		-webkit-transition:width .05s linear;
 		transition:width .05s linear;
-		-webkit-transform:translateZ(0) 
+		-webkit-transform:translateZ(0);
 	}
 
-	.sidebar_control
-	{
-		position: relative;
-		&.open
-		{
-			left: 26.6%;
-		}
-	}
-
-	.sidebar
-	{
-		position: fixed;
-		top: 0;
-		left: -26.6%;
-
-		z-index: 9999;
-
-		&:after
-		{
-			content: "";
-			width: 100%;
-			height: 17px;
-
-			display: block;
-
-			position: absolute;
-			top: -17px;
-			right: 0;
-
-			background-color: $primary-color;
-		}
-
-		.header
-		{
-			padding: 2px 0 8px 0;
-
-			.close_side
-			{
-				margin: 0;
-				padding: 0;
-				height: auto;
-				border-radius: 0;
-				font-size: inherit;
-				color: #fff;
-				background-color: transparent;
-
-				text-align: inherit;
-				border: none;
-
-				width: 100%;
-
-				&:after
-				{
-					position: absolute;
-					top: -4px;
-					right: -4px;
-
-					content: "";
-
-					width: 30px;
-					height: 30px;
-
-					display: block;
-
-					background-image: url('../assets/img/ico_close.png');
-					background-repeat: no-repeat;
-					background-position: cover;
-				}
-			}
-
-			h1.img
-			{
-				background-position: left 5px;
-				background-size: 42px auto;
-				padding-left: 59px;
-				margin-bottom: 0;
-				margin-left: -10px;
-
-				.badge
-			    {
-					height: 24px;
-					line-height: 25px;
-
-					padding: 0 8px;
-
-					right: -10px;
-
-					font-size: 1.6rem;
-					font-weight: 500;
-
-				    background-color: #ffffff;
-				    color: $primary-color;
-				}
-			}
-		}
-
-
-		.content
-		{
-			.scroll-content
-			{
-				margin-top: 70px !important;
-				margin-bottom: 100px !important;
-				padding-left: 15px;
-				padding-right: 12px;
-			}
-		}
-
-
-	}
 
 	.play_content
 	{
@@ -1212,6 +1471,22 @@ PLAY
 		    flex: 0 0 50%;
 		    width: 50%;
 		    max-width: 50%;
+
+		    &:first-child
+		    {
+		    	.header
+		    	{
+		    		padding-left: 15px;
+		    	}
+
+				.content
+				{
+					.scroll-content
+					{
+						padding-left: 5px;
+					}
+				}
+		    }
 
 			.header
 			{
@@ -1242,7 +1517,8 @@ PLAY
 						border-radius: 50%;
 						overflow: hidden;
 
-						&.active
+						&.active,
+						&.activated
 						{
 							background-color: $primary-color;
 							position: relative;

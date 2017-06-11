@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
-import {AlertController} from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { Insomnia } from '@ionic-native/insomnia';
 import { File } from '@ionic-native/file';
 import { PlayPage }  from '../play/play';
@@ -110,6 +110,27 @@ export class SelectPage {
       });
     }
 
+    iniciarReproducao() {
+      let confirm = this.alertCtrl.create({
+        title: 'Iniciar reprodução',
+        message: 'Sua playlist está incompleta, deseja continuar?',
+        buttons: [
+          {
+            text: 'voltar',
+            handler: () => {
+              console.log('Disagree clicked');
+            }
+          },
+          {
+            text: 'avançar',
+            handler: () => {
+              console.log('Agree clicked');
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
 
 
   }

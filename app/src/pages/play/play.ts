@@ -1,7 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController,NavParams,Events } from 'ionic-angular';
-import { FindPage }  from '../find/find';
 import { MenuController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { FindPage }  from '../find/find';
 
 declare let cordova: any;
 
@@ -18,7 +19,7 @@ export class PlayPage {
   public openMenu:any;
 	findPage : any;
 
-	constructor(public navCtrl: NavController, public params: NavParams, public menuCtrl: MenuController, public events: Events, public changeD: ChangeDetectorRef) {
+	constructor(public navCtrl: NavController, public params: NavParams, public menuCtrl: MenuController, public events: Events, public changeD: ChangeDetectorRef, public alertCtrl: AlertController) {
 		this.songs = params.get("songs");
 		this.activeSongs = params.get("activeSongs");
 		this.playingSong = {};
@@ -54,59 +55,82 @@ export class PlayPage {
 
 	}
 
-    playSong(playlist, obj) {
-	    this.playingSong = {id: obj.id, playlist: playlist};
-      return new Promise((resolve, reject) => {
-        cordova.plugins.Music.playSong(
-            obj.id,
-            function (msg) {
-                resolve(true);
-            },
-            function (e) {
-                resolve(true);
-            }
-        );
-      })
-    }
-
-    stopSong(){
-      this.playingSong = {};
-      cordova.plugins.Music.stopSong(
+  playSong(playlist, obj) {
+    this.playingSong = {id: obj.id, playlist: playlist};
+    return new Promise((resolve, reject) => {
+      cordova.plugins.Music.playSong(
+          obj.id,
           function (msg) {
-              console.log("audio stopped");
+              resolve(true);
           },
           function (e) {
-              console.log("Error getting message=" + e);
+              resolve(true);
           }
       );
-    }
+    })
+  }
+
+  stopSong(){
+    this.playingSong = {};
+    cordova.plugins.Music.stopSong(
+        function (msg) {
+            console.log("audio stopped");
+        },
+        function (e) {
+            console.log("Error getting message=" + e);
+        }
+    );
+  }
 
 
-    toggleSong(playlist, obj){
-    	if(this.playingSong.id == obj.id && this.playingSong.playlist == playlist){
-    		this.stopSong();
-    	} else {
-    		this.playSong(playlist, obj).then(playStatus => { this.playingSong = {}; });
-    	}
-    }
+  toggleSong(playlist, obj){
+  	if(this.playingSong.id == obj.id && this.playingSong.playlist == playlist){
+  		this.stopSong();
+  	} else {
+  		this.playSong(playlist, obj).then(playStatus => { this.playingSong = {}; });
+  	}
+  }
 
-    stopPlayState(){
-      this.stopSong();
-      this.navCtrl.push(this.findPage);
-    }
+  stopPlayState(){
+    this.stopSong();
+    this.navCtrl.push(this.findPage);
+  }
 
-    isPlayingSong(playlist, obj){
-      return (this.playingSong.id == obj.id && this.playingSong.playlist == playlist);
-    }
+  isPlayingSong(playlist, obj){
+    return (this.playingSong.id == obj.id && this.playingSong.playlist == playlist);
+  }
 
-   toggleMenu(menuId) {
-     this.menuCtrl.enable(true, menuId).open().then(menu => {this.openMenu = this.openMenu; console.log(menuId); });
-     // console.log(this.menuCtrl.isEnabled(menuId));
-     // this.menuCtrl.open(menuId).then(menu => { this.openMenu = this.openMenu; console.log('aqui');});
-   }
+  toggleMenu(menuId) {
+   this.menuCtrl.enable(true, menuId).open().then(menu => {this.openMenu = this.openMenu; console.log(menuId); });
+   // console.log(this.menuCtrl.isEnabled(menuId));
+   // this.menuCtrl.open(menuId).then(menu => { this.openMenu = this.openMenu; console.log('aqui');});
+  }
 
-   isMenuOpen(menuId) {
-     return this.openMenu == menuId;
-   }
+  isMenuOpen(menuId) {
+   return this.openMenu == menuId;
+  }
+
+
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Encerrar reprodução',
+      message: 'Tem certeza que deseja encerrar esta reprodução?',
+      buttons: [
+        {
+          text: 'cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'finalizar',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
 }
