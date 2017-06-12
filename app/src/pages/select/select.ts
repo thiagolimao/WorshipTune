@@ -20,6 +20,7 @@ export class SelectPage {
   searchTerm: any;
   playPage : any;
   confirmAlert : any;
+  public playingSong:any;
 
   constructor(public navCtrl: NavController, private platform: Platform, private geolocation: Geolocation, private alertCtrl: AlertController, private insomnia: Insomnia, private file: File) {
       this.activeSongs =  [];
@@ -28,6 +29,8 @@ export class SelectPage {
       this.activeSongs['instrumental'] = [];
       this.searchTerm = '';
       this.playPage = PlayPage;
+      this.playingSong = {};
+
 
       platform.ready().then(() => {
         this.insomnia.keepAwake()
@@ -38,7 +41,7 @@ export class SelectPage {
 
       });
 
-       this.getSongs().then(list => { this.filteredSongs = this.songs = list; });
+       this.getSongs().then(list => { this.filteredSongs = this.songs = list; console.log(this.songs); });
 
     }
 
@@ -69,34 +72,6 @@ export class SelectPage {
       return this.activeSongs[this.playlist].indexOf(obj) > -1;
     }
 
-    playSong(obj) {
-      cordova.plugins.Music.playSong(
-          //id of song
-          obj.id,
-          // onComplete callback
-          function (msg) {
-              console.log("audio completed");
-          },
-          // error callback
-          function (e) {
-              console.log("Error getting message=" + e);
-          }
-      );
-    }
-
-    stopSong(){
-      cordova.plugins.Music.stopSong(
-          // success callback
-          function (msg) {
-              console.log("audio stopped");
-          },
-          // error callback
-          function (e) {
-              console.log("Error getting message=" + e);
-          }
-      );
-    }
-
     filterItems(){
         this.filteredSongs = this.songs.filter((song) => {
               return song.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1 || song.artist.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
@@ -106,7 +81,8 @@ export class SelectPage {
     beginPlay(){
       this.navCtrl.push(this.playPage, {
         songs: this.songs,
-        activeSongs: this.activeSongs
+        activeSongs: this.activeSongs,
+        playingSong: this.playingSong
       });
     }
 
@@ -138,6 +114,46 @@ export class SelectPage {
         this.beginPlay();
       }
     }
+
+  playSong(playlist, obj) {
+    this.playingSong = {id: obj.id, playlist: playlist};
+    return new Promise((resolve, reject) => {
+      cordova.plugins.Music.playSong(
+          obj.id,
+          function (msg) {
+              resolve(true);
+          },
+          function (e) {
+              resolve(true);
+          }
+      );
+    })
+  }
+
+  stopSong(){
+    this.playingSong = {};
+    cordova.plugins.Music.stopSong(
+        function (msg) {
+            console.log("audio stopped");
+        },
+        function (e) {
+            console.log("Error getting message=" + e);
+        }
+    );
+  }
+
+
+  toggleSong(playlist, obj){
+    if(this.playingSong.id == obj.id && this.playingSong.playlist == playlist){
+      this.stopSong();
+    } else {
+      this.playSong(playlist, obj).then(playStatus => { this.playingSong = {}; });
+    }
+  }
+
+  isPlayingSong(playlist, obj){
+    return (this.playingSong.id == obj.id && this.playingSong.playlist == playlist);
+  }
 
 
   }

@@ -51,27 +51,7 @@
 							</ion-item>
 							<!-- /item vazio -->
 
-<!-- 							<ion-item class="item_filled">
-								<ion-thumbnail item-left>
-									<ion-badge>1</ion-badge>
-									<ion-icon class="ico_circle_play"></ion-icon>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Novo dia, novo tempo</h1>
-								<h2>Renascer Praise</h2>
-							</ion-item>
-
-							<ion-item class="item_filled active">
-								<ion-thumbnail item-left>
-									<ion-badge>1</ion-badge>
-									<ion-icon class="ico_circle_play"></ion-icon>
-									<img src="assets/img/img_placehold_pq.png">
-								</ion-thumbnail>
-								<h1>Novo dia, novo tempo</h1>
-								<h2>Renascer Praise</h2>
-							</ion-item> -->
-
-							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" class="item_filled">
+							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" class="item_filled" (tap)="toggleSong('principal', princSong)" [ngClass]="{'active' : isPlayingSong('principal', princSong)}">
 								<ion-thumbnail item-left>
 									<ion-badge>{{i + 1}}</ion-badge>
 									<ion-icon class="ico_circle_play"></ion-icon>
@@ -95,7 +75,7 @@
 							</ion-item>
 							<!-- /item vazio -->
 
-							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" class="item_filled">
+							<ion-item *ngFor="let instSong of activeSongs['instrumental']; let i = index;" class="item_filled" (tap)="toggleSong('instrumental', instSong)" [ngClass]="{'active' : isPlayingSong('instrumental', instSong)}">
 								<ion-thumbnail item-left>
 									<ion-badge>{{i + 1}}</ion-badge>
 									<ion-icon class="ico_circle_play"></ion-icon>

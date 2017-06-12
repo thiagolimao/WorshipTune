@@ -22,7 +22,7 @@ export class PlayPage {
 	constructor(public navCtrl: NavController, public params: NavParams, public menuCtrl: MenuController, public events: Events, public changeD: ChangeDetectorRef, public alertCtrl: AlertController) {
 		this.songs = params.get("songs");
 		this.activeSongs = params.get("activeSongs");
-		this.playingSong = {};
+		this.playingSong = params.get("playingSong");
 		this.selectPage = SelectPage;
     this.menuCtrl.swipeEnable(false, 'menuPrincipais');
     this.menuCtrl.swipeEnable(false, 'menuInstrumentais');
