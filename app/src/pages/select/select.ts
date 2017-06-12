@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
 import { Insomnia } from '@ionic-native/insomnia';
 import { File } from '@ionic-native/file';
 import { PlayPage }  from '../play/play';
@@ -20,6 +19,7 @@ export class SelectPage {
   playlist: any;
   searchTerm: any;
   playPage : any;
+  confirmAlert : any;
 
   constructor(public navCtrl: NavController, private platform: Platform, private geolocation: Geolocation, private alertCtrl: AlertController, private insomnia: Insomnia, private file: File) {
       this.activeSongs =  [];
@@ -111,25 +111,32 @@ export class SelectPage {
     }
 
     iniciarReproducao() {
-      let confirm = this.alertCtrl.create({
-        title: 'Iniciar reprodução',
-        message: 'Sua playlist está incompleta, deseja continuar?',
-        buttons: [
-          {
-            text: 'voltar',
-            handler: () => {
-              console.log('Disagree clicked');
+      if(this.activeSongs['principal'].length  <= 0 || this.activeSongs['instrumental'] <= 0){
+        var confirmAlert = this.alertCtrl.create({
+          title: 'Iniciar reprodução',
+          message: 'Sua playlist está incompleta, deseja continuar?',
+          buttons: [
+            {
+              text: 'voltar',
+              handler: () => {
+                confirmAlert.dismiss();
+                return false;
+              }
+            },
+            {
+              text: 'avançar',
+              handler: () => {
+                confirmAlert.dismiss().then(nav => this.beginPlay());
+              }
             }
-          },
-          {
-            text: 'avançar',
-            handler: () => {
-              console.log('Agree clicked');
-            }
-          }
-        ]
-      });
-      confirm.present();
+          ],
+          enableBackdropDismiss : false
+        });
+
+        confirmAlert.present();
+      } else {
+        this.beginPlay();
+      }
     }
 
 

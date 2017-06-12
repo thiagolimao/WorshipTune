@@ -46,12 +46,12 @@
 							</h1>
 
 							<!-- item vazio -->
-							<ion-item class="item_none">
+							<ion-item class="item_none" *ngIf="activeSongs['principal'].length <= 0">
 								<img src="assets/img/icon_sem musica.png">
 							</ion-item>
 							<!-- /item vazio -->
 
-							<ion-item class="item_filled">
+<!-- 							<ion-item class="item_filled">
 								<ion-thumbnail item-left>
 									<ion-badge>1</ion-badge>
 									<ion-icon class="ico_circle_play"></ion-icon>
@@ -69,7 +69,7 @@
 								</ion-thumbnail>
 								<h1>Novo dia, novo tempo</h1>
 								<h2>Renascer Praise</h2>
-							</ion-item>
+							</ion-item> -->
 
 							<ion-item *ngFor="let princSong of activeSongs['principal']; let i = index;" class="item_filled">
 								<ion-thumbnail item-left>
@@ -90,7 +90,7 @@
 							</h1>
 
 							<!-- item vazio -->
-							<ion-item class="item_none">
+							<ion-item class="item_none" *ngIf="activeSongs['instrumental'].length <= 0">
 								<img src="assets/img/icon_sem musica.png">
 							</ion-item>
 							<!-- /item vazio -->

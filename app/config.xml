@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.app233101" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Worship Tune</name>
+  <name>WorshipTune</name>
   <description>Louvando com Tecnologia</description>
   <author email="wlademyr.mendes@gmail.com" href="http://facebook.com/wlademyr.mendes">Wlademyr Mendes</author>
   <content src="index.html"/>
@@ -11,6 +11,7 @@
   <allow-navigation href="http://169.254.73.81:8100"/>
   <allow-navigation href="http://192.168.0.26:8100"/>
   <allow-navigation href="http://192.168.1.9:8100"/>
+  <allow-navigation href="http://192.168.1.103:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

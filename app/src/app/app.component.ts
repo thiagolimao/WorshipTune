@@ -10,7 +10,7 @@ import { FindPage }  from '../pages/find/find';
 import { SelectPage }  from '../pages/select/select';
 import { PlaylistPage }  from '../pages/playlist/playlist';
 import { PlayPage }  from '../pages/play/play';
-declare let cordova: any;
+declare var cordova: any;
 
 @Component({
   templateUrl: 'app.html'

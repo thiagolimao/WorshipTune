@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController,NavParams,Events } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { FindPage }  from '../find/find';
+import { SelectPage }  from '../select/select';
 
 declare let cordova: any;
 
@@ -17,13 +17,13 @@ export class PlayPage {
 	public activeSongs:any;
 	public playingSong:any;
   public openMenu:any;
-	findPage : any;
+	selectPage : any;
 
 	constructor(public navCtrl: NavController, public params: NavParams, public menuCtrl: MenuController, public events: Events, public changeD: ChangeDetectorRef, public alertCtrl: AlertController) {
 		this.songs = params.get("songs");
 		this.activeSongs = params.get("activeSongs");
 		this.playingSong = {};
-		this.findPage = FindPage;
+		this.selectPage = SelectPage;
     this.menuCtrl.swipeEnable(false, 'menuPrincipais');
     this.menuCtrl.swipeEnable(false, 'menuInstrumentais');
 
@@ -93,7 +93,7 @@ export class PlayPage {
 
   stopPlayState(){
     this.stopSong();
-    this.navCtrl.push(this.findPage);
+    this.navCtrl.push(this.selectPage);
   }
 
   isPlayingSong(playlist, obj){
@@ -102,8 +102,6 @@ export class PlayPage {
 
   toggleMenu(menuId) {
    this.menuCtrl.enable(true, menuId).open().then(menu => {this.openMenu = this.openMenu; console.log(menuId); });
-   // console.log(this.menuCtrl.isEnabled(menuId));
-   // this.menuCtrl.open(menuId).then(menu => { this.openMenu = this.openMenu; console.log('aqui');});
   }
 
   isMenuOpen(menuId) {
@@ -112,23 +110,25 @@ export class PlayPage {
 
 
   showConfirm() {
-    let confirm = this.alertCtrl.create({
+    var confirm = this.alertCtrl.create({
       title: 'Encerrar reprodução',
       message: 'Tem certeza que deseja encerrar esta reprodução?',
       buttons: [
         {
           text: 'cancelar',
           handler: () => {
-            console.log('Disagree clicked');
+            confirm.dismiss();
+            return false;
           }
         },
         {
           text: 'finalizar',
           handler: () => {
-            console.log('Agree clicked');
+            confirm.dismiss().then(nav => this.stopPlayState());
           }
         }
-      ]
+      ],
+      enableBackdropDismiss : false
     });
     confirm.present();
   }
