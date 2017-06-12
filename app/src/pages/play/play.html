@@ -44,7 +44,8 @@
 							<ion-card *ngFor="let princSong of activeSongs['principal']; let i = index;" [ngClass]="{'active' : isPlayingSong('principal', princSong)}">
 							  	<ion-item>
 								  	<ion-thumbnail item-left>
-										<img src="assets/img/img_placehold_capa.png">
+						                <img src="data:image/png;base64,{{princSong.artwork}}" *ngIf="princSong.artwork.length > 0" />
+										<img src="assets/img/img_placehold_capa.png" *ngIf="princSong.artwork.length <= 0">
 									</ion-thumbnail>
 									<h1>{{princSong.name}}</h1>
 									<h2>{{princSong.artist}}</h2>
@@ -105,7 +106,8 @@
 							<ion-card *ngFor="let instSong of activeSongs['instrumental']; let i = index;" [ngClass]="{'active' : isPlayingSong('instrumental',instSong)}">
 							  	<ion-item>
 								  	<ion-thumbnail item-left>
-										<img src="assets/img/img_placehold_capa.png">
+						                <img src="data:image/png;base64,{{instSong.artwork}}" *ngIf="instSong.artwork.length > 0" />
+										<img src="assets/img/img_placehold_capa.png" *ngIf="instSong.artwork.length <= 0">
 									</ion-thumbnail>
 									<h1>{{instSong.name}}</h1>
 									<h2>{{instSong.artist}}</h2>
@@ -116,7 +118,6 @@
 
 							  	<ion-card-content>
 							  		<ion-range min="0" max="200">
-										<!-- <ion-label range-left>0</ion-label> -->
 										<ion-label range-right>3:25</ion-label>
 									</ion-range>
 								</ion-card-content>

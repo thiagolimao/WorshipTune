@@ -36,7 +36,8 @@
           <ion-item *ngFor="let song of songsApp;" [ngClass]="{'item_filled' : activeArrayApp('principal',song)}" (tap)="updatePlaylist('principal',song)">
             <ion-thumbnail item-left>
               <span class="ico_select"></span>
-              <img src="assets/img/img_placehold_pq.png">
+              <img src="assets/img/img_placehold_pq.png" *ngIf="song.artwork.length <= 0">
+              <img src="data:image/png;base64,{{song.artwork}}" *ngIf="song.artwork.length > 0" />
             </ion-thumbnail>
             <h1>{{song.name}}</h1>
             <h2>{{song.artist}}</h2>
@@ -75,7 +76,8 @@
           <ion-item *ngFor="let song of songsApp;" [ngClass]="{'item_filled' : activeArrayApp('instrumental',song)}" (tap)="updatePlaylist('instrumental',song)">
             <ion-thumbnail item-left>
               <span class="ico_select"></span>
-              <img src="assets/img/img_placehold_pq.png">
+              <img src="assets/img/img_placehold_pq.png" *ngIf="song.artwork.length <= 0">
+              <img src="data:image/png;base64,{{song.artwork}}" *ngIf="song.artwork.length > 0" />
             </ion-thumbnail>
             <h1>{{song.name}}</h1>
             <h2>{{song.artist}}</h2>

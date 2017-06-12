@@ -16,6 +16,7 @@ export class PlayPage {
 	public songs:any;
 	public activeSongs:any;
 	public playingSong:any;
+  public pausedSong:any;
   public openMenu:any;
 	selectPage : any;
 
@@ -23,6 +24,7 @@ export class PlayPage {
 		this.songs = params.get("songs");
 		this.activeSongs = params.get("activeSongs");
 		this.playingSong = params.get("playingSong");
+    this.pausedSong = {};
 		this.selectPage = SelectPage;
     this.menuCtrl.swipeEnable(false, 'menuPrincipais');
     this.menuCtrl.swipeEnable(false, 'menuInstrumentais');
@@ -57,22 +59,37 @@ export class PlayPage {
 
   playSong(playlist, obj) {
     this.playingSong = {id: obj.id, playlist: playlist};
-    return new Promise((resolve, reject) => {
-      cordova.plugins.Music.playSong(
-          obj.id,
-          function (msg) {
-              resolve(true);
-          },
-          function (e) {
-              resolve(true);
-          }
-      );
-    })
+    if(JSON.stringify(this.pausedSong) === JSON.stringify(this.playingSong)){
+      this.pausedSong = {};
+      return new Promise((resolve, reject) => {
+        cordova.plugins.Music.resumeSong(
+            function (msg) {
+                resolve(true);
+            },
+            function (e) {
+                resolve(true);
+            }
+        );
+      })
+    } else {
+      return new Promise((resolve, reject) => {
+        this.pausedSong = {};
+        cordova.plugins.Music.playSong(
+            obj.id,
+            function (msg) {
+                resolve(true);
+            },
+            function (e) {
+                resolve(true);
+            }
+        );
+      })
+    }
   }
 
   stopSong(){
     this.playingSong = {};
-    cordova.plugins.Music.stopSong(
+    cordova.plugins.Music.pauseSong(
         function (msg) {
             console.log("audio stopped");
         },
@@ -82,10 +99,23 @@ export class PlayPage {
     );
   }
 
+  pauseSong(){
+    this.pausedSong = this.playingSong;
+    this.playingSong = {};
+    cordova.plugins.Music.pauseSong(
+        function (msg) {
+            console.log("audio stopped");
+        },
+        function (e) {
+            console.log("Error getting message=" + e);
+        }
+    );
+  }  
+
 
   toggleSong(playlist, obj){
   	if(this.playingSong.id == obj.id && this.playingSong.playlist == playlist){
-  		this.stopSong();
+  		this.pauseSong();
   	} else {
   		this.playSong(playlist, obj).then(playStatus => { this.playingSong = {}; });
   	}
